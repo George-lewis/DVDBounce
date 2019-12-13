@@ -30,82 +30,6 @@ macro(conan_find_apple_frameworks FRAMEWORKS_FOUND FRAMEWORKS)
 endmacro()
 
 
-set(CONAN_POCO_ROOT "/home/george/.conan/data/Poco/1.9.4/pocoproject/stable/package/2fdcca47c38e5221368f5cf61dc981eb1ad00722")
-set(CONAN_INCLUDE_DIRS_POCO "/home/george/.conan/data/Poco/1.9.4/pocoproject/stable/package/2fdcca47c38e5221368f5cf61dc981eb1ad00722/include")
-set(CONAN_LIB_DIRS_POCO "/home/george/.conan/data/Poco/1.9.4/pocoproject/stable/package/2fdcca47c38e5221368f5cf61dc981eb1ad00722/lib")
-set(CONAN_BIN_DIRS_POCO )
-set(CONAN_RES_DIRS_POCO )
-set(CONAN_SRC_DIRS_POCO )
-set(CONAN_BUILD_DIRS_POCO "/home/george/.conan/data/Poco/1.9.4/pocoproject/stable/package/2fdcca47c38e5221368f5cf61dc981eb1ad00722/")
-set(CONAN_FRAMEWORK_DIRS_POCO )
-set(CONAN_LIBS_POCO PocoMongoDB PocoNetSSL PocoNet PocoCrypto PocoDataSQLite PocoData PocoZip PocoUtil PocoXML PocoJSON PocoRedis PocoFoundation pthread dl rt)
-set(CONAN_PKG_LIBS_POCO PocoMongoDB PocoNetSSL PocoNet PocoCrypto PocoDataSQLite PocoData PocoZip PocoUtil PocoXML PocoJSON PocoRedis PocoFoundation pthread dl rt)
-set(CONAN_SYSTEM_LIBS_POCO )
-set(CONAN_FRAMEWORKS_POCO )
-set(CONAN_FRAMEWORKS_FOUND_POCO "")  # Will be filled later
-set(CONAN_DEFINES_POCO "-DPOCO_STATIC=ON"
-			"-DPOCO_NO_AUTOMATIC_LIBS")
-set(CONAN_BUILD_MODULES_PATHS_POCO )
-# COMPILE_DEFINITIONS are equal to CONAN_DEFINES without -D, for targets
-set(CONAN_COMPILE_DEFINITIONS_POCO "POCO_STATIC=ON"
-			"POCO_NO_AUTOMATIC_LIBS")
-
-set(CONAN_C_FLAGS_POCO "")
-set(CONAN_CXX_FLAGS_POCO "")
-set(CONAN_SHARED_LINKER_FLAGS_POCO "")
-set(CONAN_EXE_LINKER_FLAGS_POCO "")
-
-# For modern cmake targets we use the list variables (separated with ;)
-set(CONAN_C_FLAGS_POCO_LIST "")
-set(CONAN_CXX_FLAGS_POCO_LIST "")
-set(CONAN_SHARED_LINKER_FLAGS_POCO_LIST "")
-set(CONAN_EXE_LINKER_FLAGS_POCO_LIST "")
-
-# Apple Frameworks
-conan_find_apple_frameworks(CONAN_FRAMEWORKS_FOUND_POCO "${CONAN_FRAMEWORKS_POCO}")
-# Append to aggregated values variable
-set(CONAN_LIBS_POCO ${CONAN_PKG_LIBS_POCO} ${CONAN_SYSTEM_LIBS_POCO} ${CONAN_FRAMEWORKS_FOUND_POCO})
-# Aggregate package libs and frameworks for conan_package_library_targets()
-set(CONAN_LIBS_FRAMEWORKS_POCO ${CONAN_PKG_LIBS_POCO} ${CONAN_FRAMEWORKS_FOUND_POCO})
-
-
-set(CONAN_JSONFORMODERNCPP_ROOT "/home/george/.conan/data/jsonformoderncpp/3.7.3/vthiery/stable/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9")
-set(CONAN_INCLUDE_DIRS_JSONFORMODERNCPP "/home/george/.conan/data/jsonformoderncpp/3.7.3/vthiery/stable/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/include")
-set(CONAN_LIB_DIRS_JSONFORMODERNCPP "/home/george/.conan/data/jsonformoderncpp/3.7.3/vthiery/stable/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/lib")
-set(CONAN_BIN_DIRS_JSONFORMODERNCPP )
-set(CONAN_RES_DIRS_JSONFORMODERNCPP )
-set(CONAN_SRC_DIRS_JSONFORMODERNCPP )
-set(CONAN_BUILD_DIRS_JSONFORMODERNCPP "/home/george/.conan/data/jsonformoderncpp/3.7.3/vthiery/stable/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/")
-set(CONAN_FRAMEWORK_DIRS_JSONFORMODERNCPP )
-set(CONAN_LIBS_JSONFORMODERNCPP )
-set(CONAN_PKG_LIBS_JSONFORMODERNCPP )
-set(CONAN_SYSTEM_LIBS_JSONFORMODERNCPP )
-set(CONAN_FRAMEWORKS_JSONFORMODERNCPP )
-set(CONAN_FRAMEWORKS_FOUND_JSONFORMODERNCPP "")  # Will be filled later
-set(CONAN_DEFINES_JSONFORMODERNCPP )
-set(CONAN_BUILD_MODULES_PATHS_JSONFORMODERNCPP )
-# COMPILE_DEFINITIONS are equal to CONAN_DEFINES without -D, for targets
-set(CONAN_COMPILE_DEFINITIONS_JSONFORMODERNCPP )
-
-set(CONAN_C_FLAGS_JSONFORMODERNCPP "")
-set(CONAN_CXX_FLAGS_JSONFORMODERNCPP "")
-set(CONAN_SHARED_LINKER_FLAGS_JSONFORMODERNCPP "")
-set(CONAN_EXE_LINKER_FLAGS_JSONFORMODERNCPP "")
-
-# For modern cmake targets we use the list variables (separated with ;)
-set(CONAN_C_FLAGS_JSONFORMODERNCPP_LIST "")
-set(CONAN_CXX_FLAGS_JSONFORMODERNCPP_LIST "")
-set(CONAN_SHARED_LINKER_FLAGS_JSONFORMODERNCPP_LIST "")
-set(CONAN_EXE_LINKER_FLAGS_JSONFORMODERNCPP_LIST "")
-
-# Apple Frameworks
-conan_find_apple_frameworks(CONAN_FRAMEWORKS_FOUND_JSONFORMODERNCPP "${CONAN_FRAMEWORKS_JSONFORMODERNCPP}")
-# Append to aggregated values variable
-set(CONAN_LIBS_JSONFORMODERNCPP ${CONAN_PKG_LIBS_JSONFORMODERNCPP} ${CONAN_SYSTEM_LIBS_JSONFORMODERNCPP} ${CONAN_FRAMEWORKS_FOUND_JSONFORMODERNCPP})
-# Aggregate package libs and frameworks for conan_package_library_targets()
-set(CONAN_LIBS_FRAMEWORKS_JSONFORMODERNCPP ${CONAN_PKG_LIBS_JSONFORMODERNCPP} ${CONAN_FRAMEWORKS_FOUND_JSONFORMODERNCPP})
-
-
 set(CONAN_SFML_ROOT "/home/george/.conan/data/sfml/2.5.1/bincrafters/stable/package/e6ef907f35a7793fef768baf61e7f6ae7d1ffdf3")
 set(CONAN_INCLUDE_DIRS_SFML "/home/george/.conan/data/sfml/2.5.1/bincrafters/stable/package/e6ef907f35a7793fef768baf61e7f6ae7d1ffdf3/include")
 set(CONAN_LIB_DIRS_SFML "/home/george/.conan/data/sfml/2.5.1/bincrafters/stable/package/e6ef907f35a7793fef768baf61e7f6ae7d1ffdf3/lib")
@@ -141,43 +65,6 @@ conan_find_apple_frameworks(CONAN_FRAMEWORKS_FOUND_SFML "${CONAN_FRAMEWORKS_SFML
 set(CONAN_LIBS_SFML ${CONAN_PKG_LIBS_SFML} ${CONAN_SYSTEM_LIBS_SFML} ${CONAN_FRAMEWORKS_FOUND_SFML})
 # Aggregate package libs and frameworks for conan_package_library_targets()
 set(CONAN_LIBS_FRAMEWORKS_SFML ${CONAN_PKG_LIBS_SFML} ${CONAN_FRAMEWORKS_FOUND_SFML})
-
-
-set(CONAN_OPENSSL_ROOT "/home/george/.conan/data/OpenSSL/1.0.2o/conan/stable/package/444d1eb978f872e0f5e5a1a07145f79c475221ca")
-set(CONAN_INCLUDE_DIRS_OPENSSL "/home/george/.conan/data/OpenSSL/1.0.2o/conan/stable/package/444d1eb978f872e0f5e5a1a07145f79c475221ca/include")
-set(CONAN_LIB_DIRS_OPENSSL "/home/george/.conan/data/OpenSSL/1.0.2o/conan/stable/package/444d1eb978f872e0f5e5a1a07145f79c475221ca/lib")
-set(CONAN_BIN_DIRS_OPENSSL )
-set(CONAN_RES_DIRS_OPENSSL )
-set(CONAN_SRC_DIRS_OPENSSL )
-set(CONAN_BUILD_DIRS_OPENSSL "/home/george/.conan/data/OpenSSL/1.0.2o/conan/stable/package/444d1eb978f872e0f5e5a1a07145f79c475221ca/")
-set(CONAN_FRAMEWORK_DIRS_OPENSSL )
-set(CONAN_LIBS_OPENSSL ssl crypto dl)
-set(CONAN_PKG_LIBS_OPENSSL ssl crypto dl)
-set(CONAN_SYSTEM_LIBS_OPENSSL )
-set(CONAN_FRAMEWORKS_OPENSSL )
-set(CONAN_FRAMEWORKS_FOUND_OPENSSL "")  # Will be filled later
-set(CONAN_DEFINES_OPENSSL )
-set(CONAN_BUILD_MODULES_PATHS_OPENSSL )
-# COMPILE_DEFINITIONS are equal to CONAN_DEFINES without -D, for targets
-set(CONAN_COMPILE_DEFINITIONS_OPENSSL )
-
-set(CONAN_C_FLAGS_OPENSSL "")
-set(CONAN_CXX_FLAGS_OPENSSL "")
-set(CONAN_SHARED_LINKER_FLAGS_OPENSSL "")
-set(CONAN_EXE_LINKER_FLAGS_OPENSSL "")
-
-# For modern cmake targets we use the list variables (separated with ;)
-set(CONAN_C_FLAGS_OPENSSL_LIST "")
-set(CONAN_CXX_FLAGS_OPENSSL_LIST "")
-set(CONAN_SHARED_LINKER_FLAGS_OPENSSL_LIST "")
-set(CONAN_EXE_LINKER_FLAGS_OPENSSL_LIST "")
-
-# Apple Frameworks
-conan_find_apple_frameworks(CONAN_FRAMEWORKS_FOUND_OPENSSL "${CONAN_FRAMEWORKS_OPENSSL}")
-# Append to aggregated values variable
-set(CONAN_LIBS_OPENSSL ${CONAN_PKG_LIBS_OPENSSL} ${CONAN_SYSTEM_LIBS_OPENSSL} ${CONAN_FRAMEWORKS_FOUND_OPENSSL})
-# Aggregate package libs and frameworks for conan_package_library_targets()
-set(CONAN_LIBS_FRAMEWORKS_OPENSSL ${CONAN_PKG_LIBS_OPENSSL} ${CONAN_FRAMEWORKS_FOUND_OPENSSL})
 
 
 set(CONAN_FREETYPE_ROOT "/home/george/.conan/data/freetype/2.9.0/bincrafters/stable/package/387eb5152986b9b3cbc2ebb94607d96d90674d67")
@@ -380,7 +267,7 @@ set(CONAN_SETTINGS_COMPILER_VERSION "9")
 set(CONAN_SETTINGS_OS "Linux")
 set(CONAN_SETTINGS_OS_BUILD "Linux")
 
-set(CONAN_DEPENDENCIES Poco jsonformoderncpp sfml OpenSSL freetype stb libpng bzip2 zlib)
+set(CONAN_DEPENDENCIES sfml freetype stb libpng bzip2 zlib)
 # Storing original command line args (CMake helper) flags
 set(CONAN_CMD_CXX_FLAGS ${CONAN_CXX_FLAGS})
 
@@ -388,20 +275,14 @@ set(CONAN_CMD_SHARED_LINKER_FLAGS ${CONAN_SHARED_LINKER_FLAGS})
 set(CONAN_CMD_C_FLAGS ${CONAN_C_FLAGS})
 # Defining accumulated conan variables for all deps
 
-set(CONAN_INCLUDE_DIRS "/home/george/.conan/data/Poco/1.9.4/pocoproject/stable/package/2fdcca47c38e5221368f5cf61dc981eb1ad00722/include"
-			"/home/george/.conan/data/jsonformoderncpp/3.7.3/vthiery/stable/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/include"
-			"/home/george/.conan/data/sfml/2.5.1/bincrafters/stable/package/e6ef907f35a7793fef768baf61e7f6ae7d1ffdf3/include"
-			"/home/george/.conan/data/OpenSSL/1.0.2o/conan/stable/package/444d1eb978f872e0f5e5a1a07145f79c475221ca/include"
+set(CONAN_INCLUDE_DIRS "/home/george/.conan/data/sfml/2.5.1/bincrafters/stable/package/e6ef907f35a7793fef768baf61e7f6ae7d1ffdf3/include"
 			"/home/george/.conan/data/freetype/2.9.0/bincrafters/stable/package/387eb5152986b9b3cbc2ebb94607d96d90674d67/include"
 			"/home/george/.conan/data/freetype/2.9.0/bincrafters/stable/package/387eb5152986b9b3cbc2ebb94607d96d90674d67/include/freetype2"
 			"/home/george/.conan/data/stb/20180214/conan/stable/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/include"
 			"/home/george/.conan/data/libpng/1.6.34/bincrafters/stable/package/f99afdbf2a1cc98ba2029817b35103455b6a9b77/include"
 			"/home/george/.conan/data/bzip2/1.0.6/conan/stable/package/da606cf731e334010b0bf6e85a2a6f891b9f36b0/include"
 			"/home/george/.conan/data/zlib/1.2.11/conan/stable/package/6af9cc7cb931c5ad942174fd7838eb655717c709/include" ${CONAN_INCLUDE_DIRS})
-set(CONAN_LIB_DIRS "/home/george/.conan/data/Poco/1.9.4/pocoproject/stable/package/2fdcca47c38e5221368f5cf61dc981eb1ad00722/lib"
-			"/home/george/.conan/data/jsonformoderncpp/3.7.3/vthiery/stable/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/lib"
-			"/home/george/.conan/data/sfml/2.5.1/bincrafters/stable/package/e6ef907f35a7793fef768baf61e7f6ae7d1ffdf3/lib"
-			"/home/george/.conan/data/OpenSSL/1.0.2o/conan/stable/package/444d1eb978f872e0f5e5a1a07145f79c475221ca/lib"
+set(CONAN_LIB_DIRS "/home/george/.conan/data/sfml/2.5.1/bincrafters/stable/package/e6ef907f35a7793fef768baf61e7f6ae7d1ffdf3/lib"
 			"/home/george/.conan/data/freetype/2.9.0/bincrafters/stable/package/387eb5152986b9b3cbc2ebb94607d96d90674d67/lib"
 			"/home/george/.conan/data/libpng/1.6.34/bincrafters/stable/package/f99afdbf2a1cc98ba2029817b35103455b6a9b77/lib"
 			"/home/george/.conan/data/bzip2/1.0.6/conan/stable/package/da606cf731e334010b0bf6e85a2a6f891b9f36b0/lib"
@@ -410,20 +291,15 @@ set(CONAN_BIN_DIRS "/home/george/.conan/data/libpng/1.6.34/bincrafters/stable/pa
 			"/home/george/.conan/data/bzip2/1.0.6/conan/stable/package/da606cf731e334010b0bf6e85a2a6f891b9f36b0/bin" ${CONAN_BIN_DIRS})
 set(CONAN_RES_DIRS  ${CONAN_RES_DIRS})
 set(CONAN_FRAMEWORK_DIRS  ${CONAN_FRAMEWORK_DIRS})
-set(CONAN_LIBS PocoMongoDB PocoNetSSL PocoNet PocoCrypto PocoDataSQLite PocoData PocoZip PocoUtil PocoXML PocoJSON PocoRedis PocoFoundation rt sfml-graphics-s sfml-window-s sfml-system-s Xrandr X11 pthread xcb Xau Xext pthread xcb Xau Xrender X11 pthread xcb Xau X11 pthread xcb Xau Xdmcp GL udev ssl crypto dl freetype png16 m bz2 z ${CONAN_LIBS})
-set(CONAN_PKG_LIBS PocoMongoDB PocoNetSSL PocoNet PocoCrypto PocoDataSQLite PocoData PocoZip PocoUtil PocoXML PocoJSON PocoRedis PocoFoundation rt sfml-graphics-s sfml-window-s sfml-system-s Xrandr X11 pthread xcb Xau Xext pthread xcb Xau Xrender X11 pthread xcb Xau X11 pthread xcb Xau Xdmcp GL udev ssl crypto dl freetype png16 m bz2 z ${CONAN_PKG_LIBS})
+set(CONAN_LIBS sfml-graphics-s sfml-window-s sfml-system-s Xrandr X11 pthread xcb Xau Xext pthread xcb Xau Xrender X11 pthread xcb Xau X11 pthread xcb Xau Xdmcp GL udev freetype png16 m bz2 z ${CONAN_LIBS})
+set(CONAN_PKG_LIBS sfml-graphics-s sfml-window-s sfml-system-s Xrandr X11 pthread xcb Xau Xext pthread xcb Xau Xrender X11 pthread xcb Xau X11 pthread xcb Xau Xdmcp GL udev freetype png16 m bz2 z ${CONAN_PKG_LIBS})
 set(CONAN_SYSTEM_LIBS )
 set(CONAN_FRAMEWORKS  ${CONAN_FRAMEWORKS})
 set(CONAN_FRAMEWORKS_FOUND "")  # Will be filled later
 set(CONAN_DEFINES "-DSTB_TEXTEDIT_KEYTYPE=unsigned"
-			"-DSFML_STATIC"
-			"-DPOCO_STATIC=ON"
-			"-DPOCO_NO_AUTOMATIC_LIBS" ${CONAN_DEFINES})
+			"-DSFML_STATIC" ${CONAN_DEFINES})
 set(CONAN_BUILD_MODULES_PATHS  ${CONAN_BUILD_MODULES_PATHS})
-set(CONAN_CMAKE_MODULE_PATH "/home/george/.conan/data/Poco/1.9.4/pocoproject/stable/package/2fdcca47c38e5221368f5cf61dc981eb1ad00722/"
-			"/home/george/.conan/data/jsonformoderncpp/3.7.3/vthiery/stable/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/"
-			"/home/george/.conan/data/sfml/2.5.1/bincrafters/stable/package/e6ef907f35a7793fef768baf61e7f6ae7d1ffdf3/"
-			"/home/george/.conan/data/OpenSSL/1.0.2o/conan/stable/package/444d1eb978f872e0f5e5a1a07145f79c475221ca/"
+set(CONAN_CMAKE_MODULE_PATH "/home/george/.conan/data/sfml/2.5.1/bincrafters/stable/package/e6ef907f35a7793fef768baf61e7f6ae7d1ffdf3/"
 			"/home/george/.conan/data/freetype/2.9.0/bincrafters/stable/package/387eb5152986b9b3cbc2ebb94607d96d90674d67/"
 			"/home/george/.conan/data/stb/20180214/conan/stable/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/"
 			"/home/george/.conan/data/libpng/1.6.34/bincrafters/stable/package/f99afdbf2a1cc98ba2029817b35103455b6a9b77/"
@@ -450,90 +326,6 @@ macro(conan_define_targets)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${CONAN_CMD_CXX_FLAGS}")
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${CONAN_CMD_C_FLAGS}")
     set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} ${CONAN_CMD_SHARED_LINKER_FLAGS}")
-
-
-    conan_package_library_targets("${CONAN_LIBS_FRAMEWORKS_POCO}" "${CONAN_LIB_DIRS_POCO}"
-                                  CONAN_PACKAGE_TARGETS_POCO "${CONAN_SYSTEM_LIBS_POCO} CONAN_PKG::OpenSSL"
-                                  "" Poco)
-    conan_package_library_targets("${CONAN_LIBS_FRAMEWORKS_POCO_DEBUG}" "${CONAN_LIB_DIRS_POCO_DEBUG}"
-                                  CONAN_PACKAGE_TARGETS_POCO_DEBUG "${CONAN_SYSTEM_LIBS_POCO_DEBUG} CONAN_PKG::OpenSSL"
-                                  "debug" Poco)
-    conan_package_library_targets("${CONAN_LIBS_FRAMEWORKS_POCO_RELEASE}" "${CONAN_LIB_DIRS_POCO_RELEASE}"
-                                  CONAN_PACKAGE_TARGETS_POCO_RELEASE "${CONAN_SYSTEM_LIBS_POCO_RELEASE} CONAN_PKG::OpenSSL"
-                                  "release" Poco)
-    conan_package_library_targets("${CONAN_LIBS_FRAMEWORKS_POCO_RELWITHDEBINFO}" "${CONAN_LIB_DIRS_POCO_RELWITHDEBINFO}"
-                                  CONAN_PACKAGE_TARGETS_POCO_RELWITHDEBINFO "${CONAN_SYSTEM_LIBS_POCO_RELWITHDEBINFO} CONAN_PKG::OpenSSL"
-                                  "relwithdebinfo" Poco)
-    conan_package_library_targets("${CONAN_LIBS_FRAMEWORKS_POCO_MINSIZEREL}" "${CONAN_LIB_DIRS_POCO_MINSIZEREL}"
-                                  CONAN_PACKAGE_TARGETS_POCO_MINSIZEREL "${CONAN_SYSTEM_LIBS_POCO_MINSIZEREL} CONAN_PKG::OpenSSL"
-                                  "minsizerel" Poco)
-
-    add_library(CONAN_PKG::Poco INTERFACE IMPORTED)
-
-    # Property INTERFACE_LINK_FLAGS do not work, necessary to add to INTERFACE_LINK_LIBRARIES
-    set_property(TARGET CONAN_PKG::Poco PROPERTY INTERFACE_LINK_LIBRARIES ${CONAN_PACKAGE_TARGETS_POCO} ${CONAN_SHARED_LINKER_FLAGS_POCO_LIST} ${CONAN_EXE_LINKER_FLAGS_POCO_LIST}
-                                                                 $<$<CONFIG:Release>:${CONAN_PACKAGE_TARGETS_POCO_RELEASE} ${CONAN_SHARED_LINKER_FLAGS_POCO_RELEASE_LIST} ${CONAN_EXE_LINKER_FLAGS_POCO_RELEASE_LIST}>
-                                                                 $<$<CONFIG:RelWithDebInfo>:${CONAN_PACKAGE_TARGETS_POCO_RELWITHDEBINFO} ${CONAN_SHARED_LINKER_FLAGS_POCO_RELWITHDEBINFO_LIST} ${CONAN_EXE_LINKER_FLAGS_POCO_RELWITHDEBINFO_LIST}>
-                                                                 $<$<CONFIG:MinSizeRel>:${CONAN_PACKAGE_TARGETS_POCO_MINSIZEREL} ${CONAN_SHARED_LINKER_FLAGS_POCO_MINSIZEREL_LIST} ${CONAN_EXE_LINKER_FLAGS_POCO_MINSIZEREL_LIST}>
-                                                                 $<$<CONFIG:Debug>:${CONAN_PACKAGE_TARGETS_POCO_DEBUG} ${CONAN_SHARED_LINKER_FLAGS_POCO_DEBUG_LIST} ${CONAN_EXE_LINKER_FLAGS_POCO_DEBUG_LIST}>
-                                                                 CONAN_PKG::OpenSSL)
-    set_property(TARGET CONAN_PKG::Poco PROPERTY INTERFACE_INCLUDE_DIRECTORIES ${CONAN_INCLUDE_DIRS_POCO}
-                                                                      $<$<CONFIG:Release>:${CONAN_INCLUDE_DIRS_POCO_RELEASE}>
-                                                                      $<$<CONFIG:RelWithDebInfo>:${CONAN_INCLUDE_DIRS_POCO_RELWITHDEBINFO}>
-                                                                      $<$<CONFIG:MinSizeRel>:${CONAN_INCLUDE_DIRS_POCO_MINSIZEREL}>
-                                                                      $<$<CONFIG:Debug>:${CONAN_INCLUDE_DIRS_POCO_DEBUG}>)
-    set_property(TARGET CONAN_PKG::Poco PROPERTY INTERFACE_COMPILE_DEFINITIONS ${CONAN_COMPILE_DEFINITIONS_POCO}
-                                                                      $<$<CONFIG:Release>:${CONAN_COMPILE_DEFINITIONS_POCO_RELEASE}>
-                                                                      $<$<CONFIG:RelWithDebInfo>:${CONAN_COMPILE_DEFINITIONS_POCO_RELWITHDEBINFO}>
-                                                                      $<$<CONFIG:MinSizeRel>:${CONAN_COMPILE_DEFINITIONS_POCO_MINSIZEREL}>
-                                                                      $<$<CONFIG:Debug>:${CONAN_COMPILE_DEFINITIONS_POCO_DEBUG}>)
-    set_property(TARGET CONAN_PKG::Poco PROPERTY INTERFACE_COMPILE_OPTIONS ${CONAN_C_FLAGS_POCO_LIST} ${CONAN_CXX_FLAGS_POCO_LIST}
-                                                                  $<$<CONFIG:Release>:${CONAN_C_FLAGS_POCO_RELEASE_LIST} ${CONAN_CXX_FLAGS_POCO_RELEASE_LIST}>
-                                                                  $<$<CONFIG:RelWithDebInfo>:${CONAN_C_FLAGS_POCO_RELWITHDEBINFO_LIST} ${CONAN_CXX_FLAGS_POCO_RELWITHDEBINFO_LIST}>
-                                                                  $<$<CONFIG:MinSizeRel>:${CONAN_C_FLAGS_POCO_MINSIZEREL_LIST} ${CONAN_CXX_FLAGS_POCO_MINSIZEREL_LIST}>
-                                                                  $<$<CONFIG:Debug>:${CONAN_C_FLAGS_POCO_DEBUG_LIST}  ${CONAN_CXX_FLAGS_POCO_DEBUG_LIST}>)
-
-
-    conan_package_library_targets("${CONAN_LIBS_FRAMEWORKS_JSONFORMODERNCPP}" "${CONAN_LIB_DIRS_JSONFORMODERNCPP}"
-                                  CONAN_PACKAGE_TARGETS_JSONFORMODERNCPP "${CONAN_SYSTEM_LIBS_JSONFORMODERNCPP} "
-                                  "" jsonformoderncpp)
-    conan_package_library_targets("${CONAN_LIBS_FRAMEWORKS_JSONFORMODERNCPP_DEBUG}" "${CONAN_LIB_DIRS_JSONFORMODERNCPP_DEBUG}"
-                                  CONAN_PACKAGE_TARGETS_JSONFORMODERNCPP_DEBUG "${CONAN_SYSTEM_LIBS_JSONFORMODERNCPP_DEBUG} "
-                                  "debug" jsonformoderncpp)
-    conan_package_library_targets("${CONAN_LIBS_FRAMEWORKS_JSONFORMODERNCPP_RELEASE}" "${CONAN_LIB_DIRS_JSONFORMODERNCPP_RELEASE}"
-                                  CONAN_PACKAGE_TARGETS_JSONFORMODERNCPP_RELEASE "${CONAN_SYSTEM_LIBS_JSONFORMODERNCPP_RELEASE} "
-                                  "release" jsonformoderncpp)
-    conan_package_library_targets("${CONAN_LIBS_FRAMEWORKS_JSONFORMODERNCPP_RELWITHDEBINFO}" "${CONAN_LIB_DIRS_JSONFORMODERNCPP_RELWITHDEBINFO}"
-                                  CONAN_PACKAGE_TARGETS_JSONFORMODERNCPP_RELWITHDEBINFO "${CONAN_SYSTEM_LIBS_JSONFORMODERNCPP_RELWITHDEBINFO} "
-                                  "relwithdebinfo" jsonformoderncpp)
-    conan_package_library_targets("${CONAN_LIBS_FRAMEWORKS_JSONFORMODERNCPP_MINSIZEREL}" "${CONAN_LIB_DIRS_JSONFORMODERNCPP_MINSIZEREL}"
-                                  CONAN_PACKAGE_TARGETS_JSONFORMODERNCPP_MINSIZEREL "${CONAN_SYSTEM_LIBS_JSONFORMODERNCPP_MINSIZEREL} "
-                                  "minsizerel" jsonformoderncpp)
-
-    add_library(CONAN_PKG::jsonformoderncpp INTERFACE IMPORTED)
-
-    # Property INTERFACE_LINK_FLAGS do not work, necessary to add to INTERFACE_LINK_LIBRARIES
-    set_property(TARGET CONAN_PKG::jsonformoderncpp PROPERTY INTERFACE_LINK_LIBRARIES ${CONAN_PACKAGE_TARGETS_JSONFORMODERNCPP} ${CONAN_SHARED_LINKER_FLAGS_JSONFORMODERNCPP_LIST} ${CONAN_EXE_LINKER_FLAGS_JSONFORMODERNCPP_LIST}
-                                                                 $<$<CONFIG:Release>:${CONAN_PACKAGE_TARGETS_JSONFORMODERNCPP_RELEASE} ${CONAN_SHARED_LINKER_FLAGS_JSONFORMODERNCPP_RELEASE_LIST} ${CONAN_EXE_LINKER_FLAGS_JSONFORMODERNCPP_RELEASE_LIST}>
-                                                                 $<$<CONFIG:RelWithDebInfo>:${CONAN_PACKAGE_TARGETS_JSONFORMODERNCPP_RELWITHDEBINFO} ${CONAN_SHARED_LINKER_FLAGS_JSONFORMODERNCPP_RELWITHDEBINFO_LIST} ${CONAN_EXE_LINKER_FLAGS_JSONFORMODERNCPP_RELWITHDEBINFO_LIST}>
-                                                                 $<$<CONFIG:MinSizeRel>:${CONAN_PACKAGE_TARGETS_JSONFORMODERNCPP_MINSIZEREL} ${CONAN_SHARED_LINKER_FLAGS_JSONFORMODERNCPP_MINSIZEREL_LIST} ${CONAN_EXE_LINKER_FLAGS_JSONFORMODERNCPP_MINSIZEREL_LIST}>
-                                                                 $<$<CONFIG:Debug>:${CONAN_PACKAGE_TARGETS_JSONFORMODERNCPP_DEBUG} ${CONAN_SHARED_LINKER_FLAGS_JSONFORMODERNCPP_DEBUG_LIST} ${CONAN_EXE_LINKER_FLAGS_JSONFORMODERNCPP_DEBUG_LIST}>
-                                                                 )
-    set_property(TARGET CONAN_PKG::jsonformoderncpp PROPERTY INTERFACE_INCLUDE_DIRECTORIES ${CONAN_INCLUDE_DIRS_JSONFORMODERNCPP}
-                                                                      $<$<CONFIG:Release>:${CONAN_INCLUDE_DIRS_JSONFORMODERNCPP_RELEASE}>
-                                                                      $<$<CONFIG:RelWithDebInfo>:${CONAN_INCLUDE_DIRS_JSONFORMODERNCPP_RELWITHDEBINFO}>
-                                                                      $<$<CONFIG:MinSizeRel>:${CONAN_INCLUDE_DIRS_JSONFORMODERNCPP_MINSIZEREL}>
-                                                                      $<$<CONFIG:Debug>:${CONAN_INCLUDE_DIRS_JSONFORMODERNCPP_DEBUG}>)
-    set_property(TARGET CONAN_PKG::jsonformoderncpp PROPERTY INTERFACE_COMPILE_DEFINITIONS ${CONAN_COMPILE_DEFINITIONS_JSONFORMODERNCPP}
-                                                                      $<$<CONFIG:Release>:${CONAN_COMPILE_DEFINITIONS_JSONFORMODERNCPP_RELEASE}>
-                                                                      $<$<CONFIG:RelWithDebInfo>:${CONAN_COMPILE_DEFINITIONS_JSONFORMODERNCPP_RELWITHDEBINFO}>
-                                                                      $<$<CONFIG:MinSizeRel>:${CONAN_COMPILE_DEFINITIONS_JSONFORMODERNCPP_MINSIZEREL}>
-                                                                      $<$<CONFIG:Debug>:${CONAN_COMPILE_DEFINITIONS_JSONFORMODERNCPP_DEBUG}>)
-    set_property(TARGET CONAN_PKG::jsonformoderncpp PROPERTY INTERFACE_COMPILE_OPTIONS ${CONAN_C_FLAGS_JSONFORMODERNCPP_LIST} ${CONAN_CXX_FLAGS_JSONFORMODERNCPP_LIST}
-                                                                  $<$<CONFIG:Release>:${CONAN_C_FLAGS_JSONFORMODERNCPP_RELEASE_LIST} ${CONAN_CXX_FLAGS_JSONFORMODERNCPP_RELEASE_LIST}>
-                                                                  $<$<CONFIG:RelWithDebInfo>:${CONAN_C_FLAGS_JSONFORMODERNCPP_RELWITHDEBINFO_LIST} ${CONAN_CXX_FLAGS_JSONFORMODERNCPP_RELWITHDEBINFO_LIST}>
-                                                                  $<$<CONFIG:MinSizeRel>:${CONAN_C_FLAGS_JSONFORMODERNCPP_MINSIZEREL_LIST} ${CONAN_CXX_FLAGS_JSONFORMODERNCPP_MINSIZEREL_LIST}>
-                                                                  $<$<CONFIG:Debug>:${CONAN_C_FLAGS_JSONFORMODERNCPP_DEBUG_LIST}  ${CONAN_CXX_FLAGS_JSONFORMODERNCPP_DEBUG_LIST}>)
 
 
     conan_package_library_targets("${CONAN_LIBS_FRAMEWORKS_SFML}" "${CONAN_LIB_DIRS_SFML}"
@@ -576,48 +368,6 @@ macro(conan_define_targets)
                                                                   $<$<CONFIG:RelWithDebInfo>:${CONAN_C_FLAGS_SFML_RELWITHDEBINFO_LIST} ${CONAN_CXX_FLAGS_SFML_RELWITHDEBINFO_LIST}>
                                                                   $<$<CONFIG:MinSizeRel>:${CONAN_C_FLAGS_SFML_MINSIZEREL_LIST} ${CONAN_CXX_FLAGS_SFML_MINSIZEREL_LIST}>
                                                                   $<$<CONFIG:Debug>:${CONAN_C_FLAGS_SFML_DEBUG_LIST}  ${CONAN_CXX_FLAGS_SFML_DEBUG_LIST}>)
-
-
-    conan_package_library_targets("${CONAN_LIBS_FRAMEWORKS_OPENSSL}" "${CONAN_LIB_DIRS_OPENSSL}"
-                                  CONAN_PACKAGE_TARGETS_OPENSSL "${CONAN_SYSTEM_LIBS_OPENSSL} CONAN_PKG::zlib"
-                                  "" OpenSSL)
-    conan_package_library_targets("${CONAN_LIBS_FRAMEWORKS_OPENSSL_DEBUG}" "${CONAN_LIB_DIRS_OPENSSL_DEBUG}"
-                                  CONAN_PACKAGE_TARGETS_OPENSSL_DEBUG "${CONAN_SYSTEM_LIBS_OPENSSL_DEBUG} CONAN_PKG::zlib"
-                                  "debug" OpenSSL)
-    conan_package_library_targets("${CONAN_LIBS_FRAMEWORKS_OPENSSL_RELEASE}" "${CONAN_LIB_DIRS_OPENSSL_RELEASE}"
-                                  CONAN_PACKAGE_TARGETS_OPENSSL_RELEASE "${CONAN_SYSTEM_LIBS_OPENSSL_RELEASE} CONAN_PKG::zlib"
-                                  "release" OpenSSL)
-    conan_package_library_targets("${CONAN_LIBS_FRAMEWORKS_OPENSSL_RELWITHDEBINFO}" "${CONAN_LIB_DIRS_OPENSSL_RELWITHDEBINFO}"
-                                  CONAN_PACKAGE_TARGETS_OPENSSL_RELWITHDEBINFO "${CONAN_SYSTEM_LIBS_OPENSSL_RELWITHDEBINFO} CONAN_PKG::zlib"
-                                  "relwithdebinfo" OpenSSL)
-    conan_package_library_targets("${CONAN_LIBS_FRAMEWORKS_OPENSSL_MINSIZEREL}" "${CONAN_LIB_DIRS_OPENSSL_MINSIZEREL}"
-                                  CONAN_PACKAGE_TARGETS_OPENSSL_MINSIZEREL "${CONAN_SYSTEM_LIBS_OPENSSL_MINSIZEREL} CONAN_PKG::zlib"
-                                  "minsizerel" OpenSSL)
-
-    add_library(CONAN_PKG::OpenSSL INTERFACE IMPORTED)
-
-    # Property INTERFACE_LINK_FLAGS do not work, necessary to add to INTERFACE_LINK_LIBRARIES
-    set_property(TARGET CONAN_PKG::OpenSSL PROPERTY INTERFACE_LINK_LIBRARIES ${CONAN_PACKAGE_TARGETS_OPENSSL} ${CONAN_SHARED_LINKER_FLAGS_OPENSSL_LIST} ${CONAN_EXE_LINKER_FLAGS_OPENSSL_LIST}
-                                                                 $<$<CONFIG:Release>:${CONAN_PACKAGE_TARGETS_OPENSSL_RELEASE} ${CONAN_SHARED_LINKER_FLAGS_OPENSSL_RELEASE_LIST} ${CONAN_EXE_LINKER_FLAGS_OPENSSL_RELEASE_LIST}>
-                                                                 $<$<CONFIG:RelWithDebInfo>:${CONAN_PACKAGE_TARGETS_OPENSSL_RELWITHDEBINFO} ${CONAN_SHARED_LINKER_FLAGS_OPENSSL_RELWITHDEBINFO_LIST} ${CONAN_EXE_LINKER_FLAGS_OPENSSL_RELWITHDEBINFO_LIST}>
-                                                                 $<$<CONFIG:MinSizeRel>:${CONAN_PACKAGE_TARGETS_OPENSSL_MINSIZEREL} ${CONAN_SHARED_LINKER_FLAGS_OPENSSL_MINSIZEREL_LIST} ${CONAN_EXE_LINKER_FLAGS_OPENSSL_MINSIZEREL_LIST}>
-                                                                 $<$<CONFIG:Debug>:${CONAN_PACKAGE_TARGETS_OPENSSL_DEBUG} ${CONAN_SHARED_LINKER_FLAGS_OPENSSL_DEBUG_LIST} ${CONAN_EXE_LINKER_FLAGS_OPENSSL_DEBUG_LIST}>
-                                                                 CONAN_PKG::zlib)
-    set_property(TARGET CONAN_PKG::OpenSSL PROPERTY INTERFACE_INCLUDE_DIRECTORIES ${CONAN_INCLUDE_DIRS_OPENSSL}
-                                                                      $<$<CONFIG:Release>:${CONAN_INCLUDE_DIRS_OPENSSL_RELEASE}>
-                                                                      $<$<CONFIG:RelWithDebInfo>:${CONAN_INCLUDE_DIRS_OPENSSL_RELWITHDEBINFO}>
-                                                                      $<$<CONFIG:MinSizeRel>:${CONAN_INCLUDE_DIRS_OPENSSL_MINSIZEREL}>
-                                                                      $<$<CONFIG:Debug>:${CONAN_INCLUDE_DIRS_OPENSSL_DEBUG}>)
-    set_property(TARGET CONAN_PKG::OpenSSL PROPERTY INTERFACE_COMPILE_DEFINITIONS ${CONAN_COMPILE_DEFINITIONS_OPENSSL}
-                                                                      $<$<CONFIG:Release>:${CONAN_COMPILE_DEFINITIONS_OPENSSL_RELEASE}>
-                                                                      $<$<CONFIG:RelWithDebInfo>:${CONAN_COMPILE_DEFINITIONS_OPENSSL_RELWITHDEBINFO}>
-                                                                      $<$<CONFIG:MinSizeRel>:${CONAN_COMPILE_DEFINITIONS_OPENSSL_MINSIZEREL}>
-                                                                      $<$<CONFIG:Debug>:${CONAN_COMPILE_DEFINITIONS_OPENSSL_DEBUG}>)
-    set_property(TARGET CONAN_PKG::OpenSSL PROPERTY INTERFACE_COMPILE_OPTIONS ${CONAN_C_FLAGS_OPENSSL_LIST} ${CONAN_CXX_FLAGS_OPENSSL_LIST}
-                                                                  $<$<CONFIG:Release>:${CONAN_C_FLAGS_OPENSSL_RELEASE_LIST} ${CONAN_CXX_FLAGS_OPENSSL_RELEASE_LIST}>
-                                                                  $<$<CONFIG:RelWithDebInfo>:${CONAN_C_FLAGS_OPENSSL_RELWITHDEBINFO_LIST} ${CONAN_CXX_FLAGS_OPENSSL_RELWITHDEBINFO_LIST}>
-                                                                  $<$<CONFIG:MinSizeRel>:${CONAN_C_FLAGS_OPENSSL_MINSIZEREL_LIST} ${CONAN_CXX_FLAGS_OPENSSL_MINSIZEREL_LIST}>
-                                                                  $<$<CONFIG:Debug>:${CONAN_C_FLAGS_OPENSSL_DEBUG_LIST}  ${CONAN_CXX_FLAGS_OPENSSL_DEBUG_LIST}>)
 
 
     conan_package_library_targets("${CONAN_LIBS_FRAMEWORKS_FREETYPE}" "${CONAN_LIB_DIRS_FREETYPE}"
@@ -829,7 +579,7 @@ macro(conan_define_targets)
                                                                   $<$<CONFIG:MinSizeRel>:${CONAN_C_FLAGS_ZLIB_MINSIZEREL_LIST} ${CONAN_CXX_FLAGS_ZLIB_MINSIZEREL_LIST}>
                                                                   $<$<CONFIG:Debug>:${CONAN_C_FLAGS_ZLIB_DEBUG_LIST}  ${CONAN_CXX_FLAGS_ZLIB_DEBUG_LIST}>)
 
-    set(CONAN_TARGETS CONAN_PKG::Poco CONAN_PKG::jsonformoderncpp CONAN_PKG::sfml CONAN_PKG::OpenSSL CONAN_PKG::freetype CONAN_PKG::stb CONAN_PKG::libpng CONAN_PKG::bzip2 CONAN_PKG::zlib)
+    set(CONAN_TARGETS CONAN_PKG::sfml CONAN_PKG::freetype CONAN_PKG::stb CONAN_PKG::libpng CONAN_PKG::bzip2 CONAN_PKG::zlib)
 
 endmacro()
 

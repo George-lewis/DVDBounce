@@ -4,65 +4,45 @@
   "nodes": {
    "0": {
     "pref": null,
-    "options": "OpenSSL:386=False\nOpenSSL:no_asm=False\nOpenSSL:no_bf=False\nOpenSSL:no_cast=False\nOpenSSL:no_des=False\nOpenSSL:no_dh=False\nOpenSSL:no_dsa=False\nOpenSSL:no_hmac=False\nOpenSSL:no_md2=False\nOpenSSL:no_md5=False\nOpenSSL:no_mdc2=False\nOpenSSL:no_rc2=False\nOpenSSL:no_rc4=False\nOpenSSL:no_rc5=False\nOpenSSL:no_rsa=False\nOpenSSL:no_sha=False\nOpenSSL:no_sse2=False\nOpenSSL:no_threads=False\nOpenSSL:no_zlib=False\nOpenSSL:shared=False\nPoco:cxx_14=False\nPoco:enable_apacheconnector=False\nPoco:enable_cppparser=False\nPoco:enable_crypto=True\nPoco:enable_data=True\nPoco:enable_data_mysql=False\nPoco:enable_data_odbc=False\nPoco:enable_data_sqlite=True\nPoco:enable_json=True\nPoco:enable_mongodb=True\nPoco:enable_net=True\nPoco:enable_netssl=True\nPoco:enable_netssl_win=True\nPoco:enable_pagecompiler=False\nPoco:enable_pagecompiler_file2page=False\nPoco:enable_pdf=False\nPoco:enable_pocodoc=False\nPoco:enable_redis=True\nPoco:enable_sevenzip=False\nPoco:enable_tests=False\nPoco:enable_util=True\nPoco:enable_xml=True\nPoco:enable_zip=True\nPoco:fPIC=True\nPoco:force_openssl=True\nPoco:poco_unbundled=False\nPoco:shared=False\nbzip2:build_executable=True\nbzip2:fPIC=True\nbzip2:shared=False\nfreetype:fPIC=True\nfreetype:shared=False\nfreetype:with_bzip2=True\nfreetype:with_png=True\nfreetype:with_zlib=True\nlibpng:fPIC=True\nlibpng:shared=False\nsfml:audio=False\nsfml:fPIC=True\nsfml:graphics=True\nsfml:network=False\nsfml:shared=False\nsfml:window=True\nzlib:fPIC=True\nzlib:minizip=False\nzlib:shared=False",
+    "options": "bzip2:build_executable=True\nbzip2:fPIC=True\nbzip2:shared=False\nfreetype:fPIC=True\nfreetype:shared=False\nfreetype:with_bzip2=True\nfreetype:with_png=True\nfreetype:with_zlib=True\nlibpng:fPIC=True\nlibpng:shared=False\nsfml:audio=False\nsfml:fPIC=True\nsfml:graphics=True\nsfml:network=False\nsfml:shared=False\nsfml:window=True\nzlib:fPIC=True\nzlib:minizip=False\nzlib:shared=False",
     "requires": {
-     "Poco/1.9.4@pocoproject/stable#0": "1",
-     "jsonformoderncpp/3.7.3@vthiery/stable#0": "4",
-     "sfml/2.5.1@bincrafters/stable#0": "5"
+     "sfml/2.5.1@bincrafters/stable#0": "1"
     },
     "path": "/home/george/proj/conanfile.txt"
    },
    "1": {
-    "pref": "Poco/1.9.4@pocoproject/stable#0:2fdcca47c38e5221368f5cf61dc981eb1ad00722#302a8a70327d74c331aff6a7b1b910b2",
-    "options": "cxx_14=False\nenable_apacheconnector=False\nenable_cppparser=False\nenable_crypto=True\nenable_data=True\nenable_data_mysql=False\nenable_data_odbc=False\nenable_data_sqlite=True\nenable_json=True\nenable_mongodb=True\nenable_net=True\nenable_netssl=True\nenable_netssl_win=True\nenable_pagecompiler=False\nenable_pagecompiler_file2page=False\nenable_pdf=False\nenable_pocodoc=False\nenable_redis=True\nenable_sevenzip=False\nenable_tests=False\nenable_util=True\nenable_xml=True\nenable_zip=True\nfPIC=True\nforce_openssl=True\npoco_unbundled=False\nshared=False\nOpenSSL:386=False\nOpenSSL:no_asm=False\nOpenSSL:no_bf=False\nOpenSSL:no_cast=False\nOpenSSL:no_des=False\nOpenSSL:no_dh=False\nOpenSSL:no_dsa=False\nOpenSSL:no_hmac=False\nOpenSSL:no_md2=False\nOpenSSL:no_md5=False\nOpenSSL:no_mdc2=False\nOpenSSL:no_rc2=False\nOpenSSL:no_rc4=False\nOpenSSL:no_rc5=False\nOpenSSL:no_rsa=False\nOpenSSL:no_sha=False\nOpenSSL:no_sse2=False\nOpenSSL:no_threads=False\nOpenSSL:no_zlib=False\nOpenSSL:shared=False\nzlib:fPIC=True\nzlib:minizip=False\nzlib:shared=False",
-    "requires": {
-     "OpenSSL/1.0.2o@conan/stable#0": "2"
-    }
-   },
-   "2": {
-    "pref": "OpenSSL/1.0.2o@conan/stable#0:444d1eb978f872e0f5e5a1a07145f79c475221ca#98a0297da58f4e0719c67e54c43b9bec",
-    "options": "386=False\nno_asm=False\nno_bf=False\nno_cast=False\nno_des=False\nno_dh=False\nno_dsa=False\nno_hmac=False\nno_md2=False\nno_md5=False\nno_mdc2=False\nno_rc2=False\nno_rc4=False\nno_rc5=False\nno_rsa=False\nno_sha=False\nno_sse2=False\nno_threads=False\nno_zlib=False\nshared=False\nzlib:fPIC=True\nzlib:minizip=False\nzlib:shared=False",
-    "requires": {
-     "zlib/1.2.11@conan/stable#0": "3"
-    }
-   },
-   "3": {
-    "pref": "zlib/1.2.11@conan/stable#0:6af9cc7cb931c5ad942174fd7838eb655717c709#0",
-    "options": "fPIC=True\nminizip=False\nshared=False"
-   },
-   "4": {
-    "pref": "jsonformoderncpp/3.7.3@vthiery/stable#0:5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9#0",
-    "options": ""
-   },
-   "5": {
     "pref": "sfml/2.5.1@bincrafters/stable#0:e6ef907f35a7793fef768baf61e7f6ae7d1ffdf3#12edf775fe1ee471dd4b81ab1297f354",
     "options": "audio=False\nfPIC=True\ngraphics=True\nnetwork=False\nshared=False\nwindow=True\nbzip2:build_executable=True\nbzip2:fPIC=True\nbzip2:shared=False\nfreetype:fPIC=True\nfreetype:shared=False\nfreetype:with_bzip2=True\nfreetype:with_png=True\nfreetype:with_zlib=True\nlibpng:fPIC=True\nlibpng:shared=False\nzlib:fPIC=True\nzlib:minizip=False\nzlib:shared=False",
     "requires": {
-     "freetype/2.9.0@bincrafters/stable#0": "6",
-     "stb/20180214@conan/stable#0": "9"
+     "freetype/2.9.0@bincrafters/stable#0": "2",
+     "stb/20180214@conan/stable#0": "6"
     }
    },
-   "6": {
+   "2": {
     "pref": "freetype/2.9.0@bincrafters/stable#0:387eb5152986b9b3cbc2ebb94607d96d90674d67#306d57c82cb4449a10b63949959207e9",
     "options": "fPIC=True\nshared=False\nwith_bzip2=True\nwith_png=True\nwith_zlib=True\nbzip2:build_executable=True\nbzip2:fPIC=True\nbzip2:shared=False\nlibpng:fPIC=True\nlibpng:shared=False\nzlib:fPIC=True\nzlib:minizip=False\nzlib:shared=False",
     "requires": {
-     "libpng/1.6.34@bincrafters/stable#0": "7",
-     "zlib/1.2.11@conan/stable#0": "3",
-     "bzip2/1.0.6@conan/stable#0": "8"
+     "libpng/1.6.34@bincrafters/stable#0": "3",
+     "zlib/1.2.11@conan/stable#0": "4",
+     "bzip2/1.0.6@conan/stable#0": "5"
     }
    },
-   "7": {
+   "3": {
     "pref": "libpng/1.6.34@bincrafters/stable#0:f99afdbf2a1cc98ba2029817b35103455b6a9b77#2cf2d1d71e6634de3f387a03ccb0e60d",
     "options": "fPIC=True\nshared=False\nzlib:fPIC=True\nzlib:minizip=False\nzlib:shared=False",
     "requires": {
-     "zlib/1.2.11@conan/stable#0": "3"
+     "zlib/1.2.11@conan/stable#0": "4"
     }
    },
-   "8": {
+   "4": {
+    "pref": "zlib/1.2.11@conan/stable#0:6af9cc7cb931c5ad942174fd7838eb655717c709#0",
+    "options": "fPIC=True\nminizip=False\nshared=False"
+   },
+   "5": {
     "pref": "bzip2/1.0.6@conan/stable#0:da606cf731e334010b0bf6e85a2a6f891b9f36b0#0",
     "options": "build_executable=True\nfPIC=True\nshared=False"
    },
-   "9": {
+   "6": {
     "pref": "stb/20180214@conan/stable#0:5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9#0",
     "options": ""
    }
