@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../../lib/libcpr.a  CMakeFiles/cpr.dir/auth.cpp.o CMakeFiles/cpr.dir/cookies.cpp.o CMakeFiles/cpr.dir/cprtypes.cpp.o CMakeFiles/cpr.dir/digest.cpp.o CMakeFiles/cpr.dir/error.cpp.o CMakeFiles/cpr.dir/multipart.cpp.o CMakeFiles/cpr.dir/parameters.cpp.o CMakeFiles/cpr.dir/payload.cpp.o CMakeFiles/cpr.dir/proxies.cpp.o CMakeFiles/cpr.dir/session.cpp.o CMakeFiles/cpr.dir/timeout.cpp.o CMakeFiles/cpr.dir/util.cpp.o CMakeFiles/cpr.dir/ssl_options.cpp.o
+/usr/bin/ranlib ../../lib/libcpr.a
