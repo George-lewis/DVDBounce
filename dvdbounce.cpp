@@ -121,7 +121,7 @@ int main(int argc, char** argv) {
 
 				logo_counter++;
 
-				tex.loadFromImage(imgs[logo_counter % 7]);
+				tex.loadFromImage(imgs[logo_counter % 8]);
 
 			}
 
