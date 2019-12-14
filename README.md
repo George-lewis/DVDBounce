@@ -17,7 +17,7 @@ Releases can be found under the [release tab](https://github.com/George-lewis/DV
 
 **DVDBounce** is made in C++ with *SFML* using the package manager *Conan* and build tool *CMake*, for ease of compilation I recommend acquiring all of these tools.
 
-1. Acquire a C++ compiler, Conan, and CMake
+1. Acquire a C++ compiler (Windows users: I recommend [MSVC](https://visualstudio.microsoft.com/downloads/), Look for "build tools"), Conan, and CMake (Windows users: This comes with the MSVC build tools)
    1. Configure the *bincrafters* repository with Conan: `conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan`
 2. Clone the repo
 3. Install dependencies
@@ -26,5 +26,6 @@ Releases can be found under the [release tab](https://github.com/George-lewis/DV
 4. compile
    1. Create a build folder
    2. You can run `c.sh` if you're on a unix system otherwise:
-      1. `cd build && cmake .. && cmake --build . ** bin/dvdbounce`
+      1. `cd build && cmake .. && cmake --build . && bin/dvdbounce`
       2. Note: It's important that the resources folder is in the same directory as the executable, i.e. the `bin` folder
+      3. Windows users: You may need to run `cmake --build . --config Release` if you get issues like `LNK2038 mismatch detected for _ITERATOR_DEBUG_LEVEL: value 2 doesn't match value 0`
