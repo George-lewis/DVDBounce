@@ -25,6 +25,8 @@ Releases can be found under the [release tab](https://github.com/George-lewis/DV
 3. Install dependencies
    1. Create a conan folder in the repo
    2. `cd conan && conan install .. --build missing`
+      - Windows users: If you get settings errors make the appropriate changes in `C:\Users\[YOUR_USER]\.conan\profiles\default`, you may need to specify what compiler you're using and what version. If you're using 2019 MSVC the version is `16`
+      - You can also acquire the dependencies on your own if you like, however you will then have to adjust the CMake file accordingly
 4. compile
    1. Create a build folder
    2. You can run `c.sh` if you're on a unix system otherwise:
