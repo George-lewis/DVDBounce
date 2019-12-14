@@ -163,9 +163,6 @@ int main(int argc, char** argv) {
 					logo_speed++;
 				} else if (event.key.code == sf::Keyboard::Down) {
 					logo_speed--;
-					if (logo_speed < 0) {
-						logo_speed = 0;
-					}
 				} else if (event.key.code == sf::Keyboard::Left) {
 					logo_width_percentage -= 0.1;
 					if (logo_width_percentage < LOGO_WIDTH_PERCENTAGE_LOWER_BOUND) {
