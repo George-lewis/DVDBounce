@@ -6,6 +6,9 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 
+#define LOGO_WIDTH_PERCENTAGE 0.3
+#define WINDOW_TITLE "DVD Bouncer Super Deluxe"
+
 int main(int argc, char** argv) {
 
 	std::cout << "Welcome to DVD Bounce, enjoy the retro" << std::endl;
@@ -32,9 +35,17 @@ int main(int argc, char** argv) {
 
 	sf::Sprite spr{tex};
 
-	spr.setColor(sf::Color::White);
+	auto width = sf::VideoMode::getDesktopMode().width;
 
-	sf::RenderWindow window(sf::VideoMode(1000, 1000), "DVD Bouncer Super Deluxe");
+	sf::RenderWindow window(sf::VideoMode(width / 4, width / 4), WINDOW_TITLE);
+
+	bool fullscreen = false;
+
+	auto ratio = spr.getGlobalBounds().width / (width/4);
+
+	auto scale = LOGO_WIDTH_PERCENTAGE / ratio;
+
+	spr.scale({scale, scale});
 
 	sf::Vector2f id {-1, -1}, d{id}, pos {0,0};
 
@@ -61,6 +72,30 @@ int main(int argc, char** argv) {
 
 				d = id;
 
+				auto ratio = spr.getGlobalBounds().width / event.size.width;
+
+				auto scale = LOGO_WIDTH_PERCENTAGE / ratio;
+
+				spr.scale({scale, scale});
+
+			} else if (event.type == sf::Event::KeyPressed) {
+				if (event.key.code == sf::Keyboard::F) {
+					if (!fullscreen) {
+
+						window.create(sf::VideoMode::getFullscreenModes()[0], WINDOW_TITLE, sf::Style::Fullscreen);
+
+						fullscreen = true;
+
+					} else {
+
+						auto width = sf::VideoMode::getDesktopMode().width;
+
+						window.create(sf::VideoMode(width / 4, width / 4), WINDOW_TITLE);
+
+						fullscreen = false;
+
+					}
+				}
 			}
         }
 
