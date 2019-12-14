@@ -24,11 +24,11 @@ int main(int argc, char** argv) {
 
 	}
 
-	int counter = 0;
+	int logo_counter = 0, corner_counter = 0;
 
 	sf::Texture tex;
 
-	tex.loadFromImage(imgs[counter]);
+	tex.loadFromImage(imgs[logo_counter]);
 
 	sf::Sprite spr{tex};
 
@@ -71,13 +71,15 @@ int main(int argc, char** argv) {
 
 			spr.setOrigin(pos);
 
-			bool bounce = false;
+			bool bounce = false, l = false, r = false, t = false, b = false;
 
 			const float w = window.getView().getSize().x, h = window.getView().getSize().y;
 
 			if (spr.getGlobalBounds().left + spr.getGlobalBounds().width >= w) {
 
 				d.x = d.x * -1;
+
+				r = true;
 
 				bounce = true;
 
@@ -87,6 +89,8 @@ int main(int argc, char** argv) {
 
 				d.y = d.y * -1;
 
+				 b = true;
+
 				bounce = true;
 
 			}
@@ -94,6 +98,8 @@ int main(int argc, char** argv) {
 			if (spr.getGlobalBounds().left <= 0) {
 
 				d.x = d.x * -1;
+
+				l = true;
 
 				bounce = true;
 
@@ -103,15 +109,25 @@ int main(int argc, char** argv) {
 
 				d.y = d.y * -1;
 
+				t = true;
+
 				bounce = true;
 
 			}
 
 			if (bounce) {
 
-				counter++;
+				logo_counter++;
 
-				tex.loadFromImage(imgs[counter % 7]);
+				tex.loadFromImage(imgs[logo_counter % 7]);
+
+			}
+
+			if (t && l || t && r || b && l || b && r) {
+
+				corner_counter++;
+
+				std::cout << "Corner! Corners so far: " << corner_counter << std::endl;
 
 			}
 
