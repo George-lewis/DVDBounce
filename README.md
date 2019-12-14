@@ -1,8 +1,8 @@
 # DVDBounce
 
-![](video.gif)
+##### Now you can finally have that retro DVD screensaver on your PC.
 
-Now you can finally have that retro DVD screensaver on your PC.
+![](video.gif)
 
 ## Installation
 
