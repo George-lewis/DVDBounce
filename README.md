@@ -43,6 +43,9 @@ When you start the program the logo should just start moving around on your scre
 - Logo speed:
   - <kbd>Up</kbd> Increases speed
   - <kbd>Down</kbd> Decreases speed
+- Logo size:
+  - <kbd>Right</kbd> Increases size
+  - <kbd>Left</kbd> Decreases size
 
 The program counts how many times the logo hits the corner for you, it prints this to the console.
 

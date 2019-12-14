@@ -9,6 +9,8 @@
 // This is the % width of the window
 // That the logo should take up
 #define LOGO_WIDTH_PERCENTAGE 0.3
+#define LOGO_WIDTH_PERCENTAGE_UPPER_BOUND 0.8
+#define LOGO_WIDTH_PERCENTAGE_LOWER_BOUND 0.1
 // Title of the window
 #define WINDOW_TITLE "DVD Bouncer Super Deluxe"
 // The default window size as a fraction of the screen size
@@ -26,6 +28,23 @@ void normalize(sf::Vector2f& vec) {
 
 	vec.x = vec.x / magnitude;
 	vec.y = vec.y / magnitude;
+
+}
+
+// Scale the sprite according to LOGO_WIDTH_PERCENTAGE
+// Explanation:
+// 1. get the ratio of the sprites width to the window's width
+// 2. divide our desired percentage by the current percentage
+// 3. this yields our scale factor, i.e by what we need to multiply
+//    so that the ratio becomes LOGO_WIDTH_PERCENTAGE
+// Note: sf::Sprite.scale() is relative
+void scale_logo(sf::Sprite& spr, sf::Window& window, float percentage) {
+
+	auto ratio = spr.getGlobalBounds().width / window.getSize().x;
+
+	auto scale = percentage / ratio;
+
+	spr.scale({scale, scale});
 
 }
 
@@ -70,30 +89,23 @@ int main(int argc, char** argv) {
 
 	auto logo_speed = LOGO_SPEED;
 
+	auto logo_width_percentage = LOGO_WIDTH_PERCENTAGE;
+
 	bool fullscreen = false;
 
-	// Scale the sprite according to LOGO_WIDTH_PERCENTAGE
-	// Explanation:
-	// 1. get the ratio of the sprites width to the window's width
-	// 2. divide our desired percentage by the current percentage
-	// 3. this yields our scale factor, i.e by what we need to multiply
-	//    so that the ratio becomes LOGO_WIDTH_PERCENTAGE
-	// Note: sf::Sprite.scale() is relative
-	auto ratio = spr.getGlobalBounds().width / (width/4);
-
-	auto scale = LOGO_WIDTH_PERCENTAGE / ratio;
-
-	spr.scale({scale, scale});
+	scale_logo(spr, window, logo_width_percentage);
 
 	// id:  Initial direction
 	// d:   Direction
 	// pos: Position
-	sf::Vector2f id {-1, -1}, d{id}, pos {0,0};
+	sf::Vector2f id {-1, -1}, d, pos {0,0};
 
 	// Normalize the direction vector
 	// so that the logo has the same "speed"
 	// no matter the direction
-	normalize(d);
+	normalize(id);
+
+	d = id;
 
 	sf::Clock clock;
 
@@ -117,14 +129,8 @@ int main(int argc, char** argv) {
 				// Reset the direction
 				d = id;
 
-				normalize(d);
-
 				// Rescale the logo
-				auto ratio = spr.getGlobalBounds().width / event.size.width;
-
-				auto scale = LOGO_WIDTH_PERCENTAGE / ratio;
-
-				spr.scale({scale, scale});
+				scale_logo(spr, window, logo_width_percentage);
 
 			} else if (event.type == sf::Event::KeyPressed) {
 				if (event.key.code == sf::Keyboard::F) {
@@ -160,6 +166,22 @@ int main(int argc, char** argv) {
 					if (logo_speed < 0) {
 						logo_speed = 0;
 					}
+				} else if (event.key.code == sf::Keyboard::Left) {
+					logo_width_percentage -= 0.1;
+					if (logo_width_percentage < LOGO_WIDTH_PERCENTAGE_LOWER_BOUND) {
+						logo_width_percentage = LOGO_WIDTH_PERCENTAGE_LOWER_BOUND;
+					}
+					pos = {0,0};
+					d = id;
+					scale_logo(spr, window, logo_width_percentage);
+				} else if (event.key.code == sf::Keyboard::Right) {
+					logo_width_percentage += 0.1;
+					if (logo_width_percentage > LOGO_WIDTH_PERCENTAGE_UPPER_BOUND) {
+						logo_width_percentage = LOGO_WIDTH_PERCENTAGE_UPPER_BOUND;
+					}
+					pos = {0,0};
+					d = id;
+					scale_logo(spr, window, logo_width_percentage);
 				}
 			}
         }
