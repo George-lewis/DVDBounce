@@ -1,5 +1,0 @@
-digraph {
-    "conanfile.txt" -> {"Poco/1.9.0@pocoproject/stable"}
-    "OpenSSL/1.0.2o@conan/stable" -> {"zlib/1.2.11@conan/stable"}
-    "Poco/1.9.0@pocoproject/stable" -> {"OpenSSL/1.0.2o@conan/stable"}
-}
