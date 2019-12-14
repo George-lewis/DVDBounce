@@ -6,6 +6,15 @@ Now you can finally have that retro DVD screensaver on your PC.
 
 ## Installation
 
+### Option One: Download a precompiled release
+Note, this only applies to you if:
+- Your architecture is x64
+- You use Windows or Linux
+
+Releases can be found under the [release tab](https://github.com/George-lewis/DVDBounce/releases)
+
+### Option Two: Compile
+
 **DVDBounce** is made in C++ with *SFML* using the package manager *Conan* and build tool *CMake*, for ease of compilation I recommend acquiring all of these tools.
 
 1. Acquire a C++ compiler, Conan, and CMake
