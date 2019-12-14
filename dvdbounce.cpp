@@ -6,6 +6,7 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 
+#define VERSION 1.1
 // This is the % width of the window
 // That the logo should take up
 #define LOGO_WIDTH_PERCENTAGE 0.3
@@ -29,7 +30,7 @@ void normalize(sf::Vector2f& vec) {
 
 int main(int argc, char** argv) {
 
-	std::cout << "Welcome to DVD Bounce, enjoy the retro" << std::endl;
+	std::cout << "Welcome to DVD Bounce v" << VERSION << ", enjoy the retro" << std::endl;
 
 	// We will store the images here
 	// For the different colors
