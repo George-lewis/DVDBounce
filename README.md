@@ -11,6 +11,8 @@ Note, this only applies to you if:
 - Your architecture is x64
 - You use Windows or Linux
 
+Note: Windows users you will need the [Microsoft Visual C++ Redistributable](https://support.microsoft.com/en-ca/help/2977003/the-latest-supported-visual-c-downloads)
+
 Releases can be found under the [release tab](https://github.com/George-lewis/DVDBounce/releases)
 
 ### Option Two: Compile
