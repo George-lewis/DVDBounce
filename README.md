@@ -33,3 +33,14 @@ Releases can be found under the [release tab](https://github.com/George-lewis/DV
       1. `cd build && cmake .. && cmake --build . && bin/dvdbounce`
       2. Note: It's important that the resources folder is in the same directory as the executable, i.e. the `bin` folder
       3. Windows users: You may need to run `cmake --build . --config Release` if you get issues like `LNK2038 mismatch detected for _ITERATOR_DEBUG_LEVEL: value 2 doesn't match value 0`
+
+## Usage
+
+When you start the program the logo should just start moving around on your screen (Note: If you can't see the logo, ensure that the resources folder with the appropriately named logos is in the same directory as the executable).
+
+- Toggle Fullscreen: <kbd>F</kbd>
+- Exit: <kbd>Esc</kbd>
+
+The program counts how many times the logo hits the corner for you, it prints this to the console.
+
+The program automatically scales to being a square with dimensions 1/4 that of the width of your screen, the logo is then scaled to 30% of the screen width.
