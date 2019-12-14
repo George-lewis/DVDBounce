@@ -18,4 +18,4 @@ Now you can finally have that retro DVD screensaver on your PC.
    1. Create a build folder
    2. You can run `c.sh` if you're on a unix system otherwise:
       1. `cd build && cmake .. && cmake --build . ** bin/dvdbounce`
-      2. Note: It's important that the resources folder is in the same directory as the executable
+      2. Note: It's important that the resources folder is in the same directory as the executable, i.e. the `bin` folder
