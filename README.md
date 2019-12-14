@@ -9,7 +9,7 @@ Now you can finally have that retro DVD screensaver on your PC.
 **DVDBounce** is made in C++ with *SFML* using the package manager *Conan* and build tool *CMake*, for ease of compilation I recommend acquiring all of these tools.
 
 1. Acquire a C++ compiler, Conan, and CMake
-   1. Configure the *bincrafters* repository with Conan
+   1. Configure the *bincrafters* repository with Conan: `conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan`
 2. Clone the repo
 3. Install dependencies
    1. Create a conan folder in the repo
