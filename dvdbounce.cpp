@@ -16,6 +16,8 @@
 #define WINDOW_DEFAULT_FRACTION 4
 // Number of miliseconds between each movement
 #define LOGO_MILISECOND_TICK 5
+// Multiplicate of the direction vector
+#define LOGO_SPEED 3
 
 // Normalizes a vector
 void normalize(sf::Vector2f& vec) {
@@ -61,6 +63,12 @@ int main(int argc, char** argv) {
 
 	// Create the window
 	sf::RenderWindow window(sf::VideoMode(width / WINDOW_DEFAULT_FRACTION, width / WINDOW_DEFAULT_FRACTION), WINDOW_TITLE);
+
+	window.setFramerateLimit(60);
+
+	window.setVerticalSyncEnabled(true);
+
+	auto logo_speed = LOGO_SPEED;
 
 	bool fullscreen = false;
 
@@ -124,6 +132,10 @@ int main(int argc, char** argv) {
 
 						window.create(sf::VideoMode::getFullscreenModes()[0], WINDOW_TITLE, sf::Style::Fullscreen);
 
+						window.setFramerateLimit(60);
+
+						window.setVerticalSyncEnabled(true);
+
 						fullscreen = true;
 
 					} else {
@@ -132,11 +144,22 @@ int main(int argc, char** argv) {
 
 						window.create(sf::VideoMode(width / WINDOW_DEFAULT_FRACTION, width / WINDOW_DEFAULT_FRACTION), WINDOW_TITLE);
 
+						window.setFramerateLimit(60);
+
+						window.setVerticalSyncEnabled(true);
+
 						fullscreen = false;
 
 					}
 				} else if (event.key.code == sf::Keyboard::Escape) {
 					window.close();
+				} else if (event.key.code == sf::Keyboard::Up) {
+					logo_speed++;
+				} else if (event.key.code == sf::Keyboard::Down) {
+					logo_speed--;
+					if (logo_speed < 0) {
+						logo_speed = 0;
+					}
 				}
 			}
         }
@@ -147,8 +170,8 @@ int main(int argc, char** argv) {
 		if (clock.getElapsedTime().asMilliseconds() >= LOGO_MILISECOND_TICK) {
 
 			// Update position
-			pos.x += d.x;
-			pos.y += d.y;
+			pos.x += d.x * logo_speed;
+			pos.y += d.y * logo_speed;
 
 			spr.setOrigin(pos);
 
