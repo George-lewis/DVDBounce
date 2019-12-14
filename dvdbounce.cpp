@@ -36,7 +36,7 @@ int main(int argc, char** argv) {
 
 	sf::RenderWindow window(sf::VideoMode(1000, 1000), "DVD Bouncer Super Deluxe");
 
-	sf::Vector2f d{-1, -1}, pos {0,0};
+	sf::Vector2f id {-1, -1}, d{id}, pos {0,0};
 
 	float magnitude = sqrt(d.x*d.x + d.y*d.y);
 
@@ -57,7 +57,9 @@ int main(int argc, char** argv) {
 				
 				window.setView(sf::View(sf::FloatRect(0, 0, event.size.width, event.size.height)));
 
-				pos = {0,0};
+				pos = {0, 0};
+
+				d = id;
 
 			}
         }
