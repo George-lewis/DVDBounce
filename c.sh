@@ -1,5 +1,7 @@
 #!/usr/bin/bash
 
 cd build
+rm -rf *
+cp -r ../resources .
 cmake ..
-cmake --build . && bin/Test
+cmake --build . && bin/dvdbounce
