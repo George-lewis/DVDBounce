@@ -18,7 +18,7 @@ int main(int argc, char** argv) {
 
 		filename << "resources/dvdlogo-0" << i << ".png";
 
-		std::cout << filename.str() << std::endl;
+		std::cout << "Load file: \"" << filename.str() << '"' << std::endl;
 
 		imgs[i].loadFromFile(filename.str());
 
