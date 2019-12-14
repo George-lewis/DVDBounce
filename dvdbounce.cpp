@@ -135,6 +135,8 @@ int main(int argc, char** argv) {
 						fullscreen = false;
 
 					}
+				} else if (event.key.code == sf::Keyboard::Escape) {
+					window.close();
 				}
 			}
         }
