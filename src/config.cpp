@@ -7,23 +7,23 @@ using DVD::Config;
 
 std::map<std::string, std::string> Config::_default = {
 
-    { "#", "This is the % width of the window" },
-    { "#", "That the logo should take up" },
+    { "#1", "This is the % width of the window" },
+    { "#2", "That the logo should take up" },
     { "LOGO_WIDTH_PERCENTAGE", "0.3" },
     { "LOGO_WIDTH_PERCENTAGE_UPPER_BOUND", "0.8" },
     { "LOGO_WIDTH_PERCENTAGE_LOWER_BOUND", "0.1" },
 
-    { "#", "Number of miliseconds between each movement" },
+    { "#3", "Number of miliseconds between each movement" },
     { "MILISECOND_TICK", "5" },
 
-    { "#", "Multiplicate of the direction vector" },
+    { "#4", "Multiplicate of the direction vector" },
     { "SPEED", "3" },
 
-    { "#", "Title of the window", },
-    { "TITLE ", "DVD Bouncer Super Deluxe" },
+    { "#5", "Title of the window", },
+    { "TITLE", "DVD Bouncer Super Deluxe" },
 
-    { "#", "The default window size as a fraction of the screen size" },
-    { "#", "EX: 4 -> 1/4 the width of the screen" },
+    { "#6", "The default window size as a fraction of the screen size" },
+    { "#7", "EX: 4 -> 1/4 the width of the screen" },
     { "WINDOW_DEFAULT_FRACTION", "4" }
 
 
@@ -62,8 +62,12 @@ void Config::readConfig() {
             // Not present
             if (Config::read.count(kv.first) == 0) {
 
-                if (kv.first == "#") {
+                if (kv.first[0] == '#') {
+
+                    Config::read[kv.first] = kv.second;
+
                     continue;
+
                 }
 
                 std::cout << "Missing value for \"" << kv.first << "\", updating with default.." << std::endl;
@@ -84,8 +88,8 @@ void Config::readConfig() {
 
             for (auto kv : Config::read) {
 
-                if (kv.first == "#") {
-                    ofile << kv.first << " " << kv.second << std::endl;
+                if (kv.first[0] == '#') {
+                    ofile << "# " << kv.second << std::endl;
                 } else {
 
                     ofile << kv.first << ": " << kv.second << std::endl;

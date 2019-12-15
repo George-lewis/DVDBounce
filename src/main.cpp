@@ -20,7 +20,7 @@ int main(int argc, char** argv) {
 	auto width = sf::VideoMode::getDesktopMode().width;
 
 	// Create the window
-	sf::RenderWindow window(sf::VideoMode(width / Config::getFloat("WINDOW_DEFAULT_FRACTION"), width / Config::getFloat("WINDOW_DEFAULT_FRACTION")), Config::getString("WINDOW_TITLE"));
+	sf::RenderWindow window(sf::VideoMode(width / Config::getFloat("WINDOW_DEFAULT_FRACTION"), width / Config::getFloat("WINDOW_DEFAULT_FRACTION")), Config::getString("TITLE"));
 
 	window.setFramerateLimit(60);
 
@@ -54,7 +54,7 @@ int main(int argc, char** argv) {
 				if (event.key.code == sf::Keyboard::F) {
 					if (!fullscreen) {
 
-						window.create(sf::VideoMode::getFullscreenModes()[0], Config::getString("WINDOW_TITLE"), sf::Style::Fullscreen);
+						window.create(sf::VideoMode::getFullscreenModes()[0], Config::getString("TITLE"), sf::Style::Fullscreen);
 
 						window.setFramerateLimit(60);
 
@@ -66,7 +66,7 @@ int main(int argc, char** argv) {
 
 						auto width = sf::VideoMode::getDesktopMode().width;
 
-						window.create(sf::VideoMode(width / Config::getFloat("WINDOW_DEFAULT_FRACTION"), width / Config::getFloat("WINDOW_DEFAULT_FRACTION")), Config::getString("WINDOW_TITLE"));
+						window.create(sf::VideoMode(width / Config::getFloat("WINDOW_DEFAULT_FRACTION"), width / Config::getFloat("WINDOW_DEFAULT_FRACTION")), Config::getString("TITLE"));
 
 						window.setFramerateLimit(60);
 
