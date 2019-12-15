@@ -4,13 +4,13 @@
 #define CONFIG_FILE "config.conf"
 
 #include <fstream>
-#include <map>
+#include <unordered_map>
 
 namespace DVD {
 
     class Config {
 
-        static std::map<std::string, std::string> _default, read;
+        static std::unordered_map<std::string, std::string> _default, read;
 
         public:
 

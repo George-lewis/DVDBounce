@@ -5,7 +5,7 @@
 
 using DVD::Config;
 
-std::map<std::string, std::string> Config::_default = {
+std::unordered_map<std::string, std::string> Config::_default = {
 
     { "#1", "This is the % width of the window" },
     { "#2", "That the logo should take up" },
