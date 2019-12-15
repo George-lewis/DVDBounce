@@ -57,7 +57,7 @@ void Config::readConfig() {
 
     bool changed = false;
 
-        for (auto kv : _default) {
+        for (const auto kv : _default) {
 
             // Not present
             if (Config::read.count(kv.first) == 0) {
@@ -86,7 +86,7 @@ void Config::readConfig() {
 
             std::ofstream ofile{CONFIG_FILE};
 
-            for (auto kv : Config::read) {
+            for (const auto kv : Config::read) {
 
                 if (kv.first[0] == '#') {
                     ofile << "# " << kv.second << std::endl;
