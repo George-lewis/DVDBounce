@@ -259,9 +259,15 @@ int main(int argc, char** argv) {
 			// Corner!
 			if (t && l || t && r || b && l || b && r) {
 
-				corner_counter++;
+				// It doesn't count if the logo isn't moving!
+				if (logo_speed != 0) {
 
-				std::cout << "Corner! Corners so far: " << corner_counter << std::endl;
+
+					corner_counter++;
+
+					std::cout << "Corner! Corners so far: " << corner_counter << std::endl;
+
+				}
 
 			}
 
