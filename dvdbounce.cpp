@@ -5,7 +5,7 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 
-#define VERSION 1.1
+#define VERSION 1.2
 // This is the % width of the window
 // That the logo should take up
 #define LOGO_WIDTH_PERCENTAGE 0.3
@@ -54,7 +54,7 @@ int main(int argc, char** argv) {
 
 	// We will store the images here
 	// For the different colors
-	sf::Image imgs[8] = {};
+	sf::Image imgs[8];
 
 	// Load images
 	for (int i = 0; i < 8; i++) {
@@ -157,6 +157,11 @@ int main(int argc, char** argv) {
 						fullscreen = false;
 
 					}
+
+					pos = {0,0};
+
+					d = id;
+
 				} else if (event.key.code == sf::Keyboard::Escape) {
 					window.close();
 				} else if (event.key.code == sf::Keyboard::Up) {
