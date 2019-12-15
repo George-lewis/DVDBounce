@@ -62,7 +62,7 @@ void Logo::scale_logo() {
 
 	auto scale = width_percentage / ratio;
 
-	this->scale({scale, scale});
+	this->scale(scale, scale);
 
 }
 
