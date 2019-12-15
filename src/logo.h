@@ -1,3 +1,6 @@
+#ifndef LOGO_H_GUARD
+#define LOGO_H_GUARD
+
 #include <SFML/Graphics.hpp>
 
 #include "util.h"
@@ -15,20 +18,20 @@ namespace DVD {
 
     class Logo: public sf::Sprite {
 
-        float logo_width_percentage = LOGO_WIDTH_PERCENTAGE;
+        float width_percentage = LOGO_WIDTH_PERCENTAGE;
 
         // We will store the images here
 	    // For the different colors
         sf::Image imgs[8];
+
+        sf::Texture texs[8];
 
         int sprite_counter = 0, corner_counter = 0;
 
         // id:  Initial direction
         // d:   Direction
         // pos: Position
-        sf::Vector2f id = {-1, -1}, d, pos = {0, 0};
-
-        sf::Texture tex{};
+        sf::Vector2f id = {1, 1}, d, pos = {0, 0};
 
         sf::RenderWindow& win;
 
@@ -36,7 +39,7 @@ namespace DVD {
 
         public:
 
-            float logo_speed = LOGO_SPEED;
+            float speed = LOGO_SPEED;
 
             Logo(sf::RenderWindow& win);
 
@@ -65,3 +68,5 @@ namespace DVD {
     };
 
 }
+
+#endif // LOGO_H_GUARD

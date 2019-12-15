@@ -1,3 +1,6 @@
+#ifndef MAIN_H_GUARD
+#define MAIN_H_GUARD
+
 // Program version
 #define VERSION 1.2
 
@@ -7,3 +10,5 @@
 // EX: 4 -> 1/4 the width of the screen
 #define WINDOW_DEFAULT_FRACTION 4
 // Number of miliseconds between each movement
+
+#endif // MAIN_H_GUARD
