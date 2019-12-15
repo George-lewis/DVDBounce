@@ -37,6 +37,14 @@ namespace DVD {
 
         void load_images();
 
+        inline float top();
+        inline float left();
+        inline float bottom();
+        inline float right();
+
+        inline float width();
+        inline float height();
+
         public:
 
             float speed = LOGO_SPEED;
@@ -56,14 +64,6 @@ namespace DVD {
             int corners();
 
             void tick();
-
-            inline float top();
-            inline float left();
-            inline float bottom();
-            inline float right();
-
-            inline float width();
-            inline float height();
 
     };
 
