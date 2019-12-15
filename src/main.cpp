@@ -7,15 +7,20 @@
 
 #include "logo.h"
 #include "main.h"
+#include "config.h"
+
+using Config = DVD::Config;
 
 int main(int argc, char** argv) {
 
 	std::cout << "Welcome to DVD Bounce v" << VERSION << ", enjoy the retro" << std::endl;
 
+	DVD::Config::readConfig();
+
 	auto width = sf::VideoMode::getDesktopMode().width;
 
 	// Create the window
-	sf::RenderWindow window(sf::VideoMode(width / WINDOW_DEFAULT_FRACTION, width / WINDOW_DEFAULT_FRACTION), WINDOW_TITLE);
+	sf::RenderWindow window(sf::VideoMode(width / Config::getFloat("WINDOW_DEFAULT_FRACTION"), width / Config::getFloat("WINDOW_DEFAULT_FRACTION")), Config::getString("WINDOW_TITLE"));
 
 	window.setFramerateLimit(60);
 
@@ -49,7 +54,7 @@ int main(int argc, char** argv) {
 				if (event.key.code == sf::Keyboard::F) {
 					if (!fullscreen) {
 
-						window.create(sf::VideoMode::getFullscreenModes()[0], WINDOW_TITLE, sf::Style::Fullscreen);
+						window.create(sf::VideoMode::getFullscreenModes()[0], Config::getString("WINDOW_TITLE"), sf::Style::Fullscreen);
 
 						window.setFramerateLimit(60);
 
@@ -61,7 +66,7 @@ int main(int argc, char** argv) {
 
 						auto width = sf::VideoMode::getDesktopMode().width;
 
-						window.create(sf::VideoMode(width / WINDOW_DEFAULT_FRACTION, width / WINDOW_DEFAULT_FRACTION), WINDOW_TITLE);
+						window.create(sf::VideoMode(width / Config::getFloat("WINDOW_DEFAULT_FRACTION"), width / Config::getFloat("WINDOW_DEFAULT_FRACTION")), Config::getString("WINDOW_TITLE"));
 
 						window.setFramerateLimit(60);
 
@@ -102,7 +107,7 @@ int main(int argc, char** argv) {
         window.clear();
 
 		// Only move the logo every LOGO_MILISECOND_TICK miliseconds
-		if (clock.getElapsedTime().asMilliseconds() >= LOGO_MILISECOND_TICK) {
+		if (clock.getElapsedTime().asMilliseconds() >= Config::getInt("MILISECOND_TICK")) {
 
 			logo.tick();
 

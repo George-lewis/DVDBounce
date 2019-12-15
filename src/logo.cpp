@@ -2,6 +2,7 @@
 #include <iostream>
 
 #include "logo.h"
+#include "config.h"
 
 using DVD::Logo;
 
@@ -78,8 +79,8 @@ void Logo::larger() {
 
     width_percentage += 0.1;
 	
-    if (width_percentage > LOGO_WIDTH_PERCENTAGE_UPPER_BOUND) {
-        width_percentage = LOGO_WIDTH_PERCENTAGE_UPPER_BOUND;
+    if (width_percentage > Config::getFloat("LOGO_WIDTH_PERCENTAGE_UPPER_BOUND")) {
+        width_percentage = Config::getFloat("LOGO_WIDTH_PERCENTAGE_UPPER_BOUND");
 	}
 
 }
@@ -88,8 +89,8 @@ void Logo::smaller() {
 
     width_percentage -= 0.1;
 
-    if (width_percentage < LOGO_WIDTH_PERCENTAGE_LOWER_BOUND) {
-        width_percentage = LOGO_WIDTH_PERCENTAGE_LOWER_BOUND;
+    if (width_percentage < Config::getFloat("LOGO_WIDTH_PERCENTAGE_LOWER_BOUND")) {
+        width_percentage = Config::getFloat("LOGO_WIDTH_PERCENTAGE_LOWER_BOUND");
     }
 
 }

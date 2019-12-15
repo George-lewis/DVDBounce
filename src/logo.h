@@ -4,21 +4,13 @@
 #include <SFML/Graphics.hpp>
 
 #include "util.h"
-
-// This is the % width of the window
-// That the logo should take up
-#define LOGO_WIDTH_PERCENTAGE 0.3
-#define LOGO_WIDTH_PERCENTAGE_UPPER_BOUND 0.8
-#define LOGO_WIDTH_PERCENTAGE_LOWER_BOUND 0.1
-#define LOGO_MILISECOND_TICK 5
-// Multiplicate of the direction vector
-#define LOGO_SPEED 3
+#include "config.h"
 
 namespace DVD {
 
     class Logo: public sf::Sprite {
 
-        float width_percentage = LOGO_WIDTH_PERCENTAGE;
+        float width_percentage = Config::getFloat("LOGO_WIDTH_PERCENTAGE");
 
         // We will store the images here
 	    // For the different colors
@@ -47,7 +39,7 @@ namespace DVD {
 
         public:
 
-            float speed = LOGO_SPEED;
+            float speed = Config::getFloat("SPEED");
 
             Logo(sf::RenderWindow& win);
 

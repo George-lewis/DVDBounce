@@ -1,6 +1,8 @@
 #ifndef UTIL_H_GUARD
 #define UTIL_H_GUARD
 
+#include <vector>
+
 #include <SFML/Graphics.hpp>
 #include <math.h>
 
