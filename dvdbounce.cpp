@@ -211,6 +211,8 @@ int main(int argc, char** argv) {
 
 				d.x = d.x * -1;
 
+				pos = {w - spr.getGlobalBounds().width, pos.y};
+
 				r = true;
 
 				bounce = true;
@@ -221,7 +223,9 @@ int main(int argc, char** argv) {
 
 				d.y = d.y * -1;
 
-				 b = true;
+				pos = {pos.x, h - spr.getGlobalBounds().height};
+
+				b = true;
 
 				bounce = true;
 
@@ -230,6 +234,8 @@ int main(int argc, char** argv) {
 			if (spr.getGlobalBounds().left <= 0) {
 
 				d.x = d.x * -1;
+
+				pos = {0, pos.y};
 
 				l = true;
 
@@ -240,6 +246,8 @@ int main(int argc, char** argv) {
 			if (spr.getGlobalBounds().top <= 0) {
 
 				d.y = d.y * -1;
+
+				pos = {pos.x, 0};
 
 				t = true;
 
