@@ -5,7 +5,7 @@
 
 using DVD::Logo;
 
-Logo::Logo(sf::RenderWindow& win): sf::Sprite(tex), win(win) {
+Logo::Logo(sf::RenderWindow& win): sf::Sprite(), win(win) {
 
     // Normalize the direction vector
 	// so that the logo has the same "speed"
@@ -16,8 +16,7 @@ Logo::Logo(sf::RenderWindow& win): sf::Sprite(tex), win(win) {
 
     load_images();
 
-    // Load initial texture
-    tex.loadFromImage(imgs[0]);
+    this->setTexture(texs[0], true);
 
     scale_logo();
 
@@ -36,6 +35,8 @@ void Logo::load_images() {
 
 		imgs[i].loadFromFile(filename.str());
 
+        texs[i].loadFromImage(imgs[i]);
+
 	}
 
 }
@@ -44,7 +45,7 @@ void Logo::next_color() {
 
     sprite_counter++;
 
-    tex.loadFromImage(imgs[sprite_counter % 8]);
+    this->setTexture(texs[sprite_counter % 8]);
 
 }
 
@@ -57,9 +58,9 @@ void Logo::next_color() {
 // Note: sf::Sprite.scale() is relative
 void Logo::scale_logo() {
 
-    auto ratio = getGlobalBounds().width / win.getSize().x;
+    auto ratio = width() / win.getSize().x;
 
-	auto scale = logo_width_percentage / ratio;
+	auto scale = width_percentage / ratio;
 
 	this->scale({scale, scale});
 
@@ -75,20 +76,20 @@ void Logo::reset_pos() {
 
 void Logo::larger() {
 
-    logo_width_percentage += 0.1;
+    width_percentage += 0.1;
 	
-    if (logo_width_percentage > LOGO_WIDTH_PERCENTAGE_UPPER_BOUND) {
-        logo_width_percentage = LOGO_WIDTH_PERCENTAGE_UPPER_BOUND;
+    if (width_percentage > LOGO_WIDTH_PERCENTAGE_UPPER_BOUND) {
+        width_percentage = LOGO_WIDTH_PERCENTAGE_UPPER_BOUND;
 	}
 
 }
 
 void Logo::smaller() {
 
-    logo_width_percentage -= 0.1;
+    width_percentage -= 0.1;
 
-    if (logo_width_percentage < LOGO_WIDTH_PERCENTAGE_LOWER_BOUND) {
-        logo_width_percentage = LOGO_WIDTH_PERCENTAGE_LOWER_BOUND;
+    if (width_percentage < LOGO_WIDTH_PERCENTAGE_LOWER_BOUND) {
+        width_percentage = LOGO_WIDTH_PERCENTAGE_LOWER_BOUND;
     }
 
 }
@@ -97,34 +98,33 @@ int Logo::corners() {
     return corner_counter;
 }
 
-float Logo::top() { return this->getGlobalBounds().width; }
+inline float Logo::top() { return pos.y; }
 
-float Logo::bottom() { return this->getGlobalBounds().top + this->getGlobalBounds().height; }
+inline float Logo::bottom() { return pos.y + this->getGlobalBounds().height; }
 
-float Logo::left() { return this->getGlobalBounds().left; }
+inline float Logo::left() { return pos.x; }
 
-float Logo::right() { return this->getGlobalBounds().left + this->getGlobalBounds().width; }
+inline float Logo::right() { return pos.x + this->getGlobalBounds().width; }
 
-float Logo::width() { return this->getGlobalBounds().width; }
+inline float Logo::width() { return this->getGlobalBounds().width; }
 
-float Logo::height() { return this->getGlobalBounds().height; }
+inline float Logo::height() { return this->getGlobalBounds().height; }
 
 void Logo::tick() {
 
     // Update position
-    pos.x += d.x * logo_speed;
-    pos.y += d.y * logo_speed;
+    pos.x += d.x * speed;
+    pos.y += d.y * speed;
 
-    this->setOrigin(pos);
+    this->setPosition(pos);
 
     // Determine if the logo bounced and off which sides
     // l = left, r = right, t = top, b = bottom
     bool bounce = false, l = false, r = false, t = false, b = false;
 
-    const float w = win.getView().getSize().x, h = win.getView().getSize().y;
+    const float w = win.getSize().x, h = win.getSize().y;
 
     // Colision detection
-
     if (this->right() >= w) {
 
         d.x = d.x * -1;
@@ -176,7 +176,12 @@ void Logo::tick() {
     // Change the logo color if it bounced
     if (bounce) {
 
-        next_color();
+        // Not touching the wall
+        if (speed != 0) {
+
+            next_color();
+
+        }
 
     }
 
@@ -184,7 +189,7 @@ void Logo::tick() {
     if ( (t && l) || (t && r) || (b && l) || (b && r)) {
 
         // It doesn't count if the logo isn't moving!
-        if (logo_speed != 0) {
+        if (speed != 0) {
 
             corner_counter++;
 

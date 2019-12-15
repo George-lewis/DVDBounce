@@ -76,9 +76,9 @@ int main(int argc, char** argv) {
 				} else if (event.key.code == sf::Keyboard::Escape) {
 					window.close();
 				} else if (event.key.code == sf::Keyboard::Up) {
-					logo.logo_speed++;
+					logo.speed++;
 				} else if (event.key.code == sf::Keyboard::Down) {
-					logo.logo_speed--;
+					logo.speed--;
 				} else if (event.key.code == sf::Keyboard::Left) {
 					
 					logo.smaller();
@@ -110,13 +110,13 @@ int main(int argc, char** argv) {
 		
 		}
 
-		std::cout << "Draw logo" << std::endl;
-
 		window.draw(logo);
 
         window.display();
 
     }
+
+	std::cout << "Farewell" << std::endl;
 
 	return 0;
  
