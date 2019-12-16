@@ -42,10 +42,25 @@ void Config::parseCommandLine(int argc, char** argv) {
     opts.add_options()
         ("screensaver", "Enables screensaver mode - the program starts fullscreen and exits on mouse/keyboard activity")
         ("fullscreen", "Starts the program in fullscreen")
-        ("c,config", "Use a different config file", cxxopts::value<std::string>())
+        ("c,config", "Use a different config file", cxxopts::value(Config::config_file))
+
+        ("t,title", "Set the window's title", cxxopts::value(Config::read["TITLE"]))
+
+        ("tick", "Set the number of miliseconds between logo movements (default 5)", cxxopts::value(Config::read["MILISECOND_TICK"]))
+        ("s,speed", "Set the speed of the logo (default 3)", cxxopts::value(Config::read["SPEED"]))
+
+        ("window-fraction", "Set the size of the window as a fraction of the screen size (4 -> 1/4th)", cxxopts::value(Config::read["WINDOW_DEFAULT_FRACTION"]))
+
+        ("logo-width", "Specify the logo's width on startup (0.1 = 10%)", cxxopts::value(Config::read["LOGO_WIDTH_PERCENTAGE"]))
+        ("logo-width-max", "Specify the logo's max width in %", cxxopts::value(Config::read["LOGO_WIDTH_PERCENTAGE_UPPER_BOUND"]))
+        ("logo-width-min", "Specify the logo's min width in %", cxxopts::value(Config::read["LOGO_WIDTH_PERCENTAGE_LOWER_BOUND"]))
         ;
 
     auto result = opts.parse(argc, argv);
+
+    if (!result.count("t")) {
+        Config::read.erase("TITLE");
+    }
 
     if (result.count("screensaver")) {
 
@@ -56,12 +71,6 @@ void Config::parseCommandLine(int argc, char** argv) {
     if (result.count("fullscreen")) {
 
         Config::read["FULLSCREEN"] = "1";
-
-    }
-
-    if (result.count("c")) {
-
-        Config::config_file = result["c"].as<std::string>();
 
     }
 
@@ -91,7 +100,7 @@ void Config::readConfig() {
             std::string value = line.substr(line.find_first_of(':') + 1);
 
             // The value could be set by command line switches
-            if (Config::read.count(key) == 0) {
+            if (Config::read.count(key) == 0 || Config::read[key].empty()) {
 
                 Config::read[key] = value;
 
@@ -109,7 +118,7 @@ void Config::readConfig() {
 
         // A required value is not present in the
         // Config that was just read
-        if (Config::read.count(kv.first) == 0) {
+        if (Config::read.count(kv.first) == 0 || Config::read[kv.first].empty()) {
 
             // Special case for comments
             if (kv.first[0] == '#') {
@@ -134,7 +143,7 @@ void Config::readConfig() {
     // The config file was corrected and needs to be rewritten
     if (changed) {
 
-        std::cout << "You are missing the config file - a default will be written" << std::endl;
+        std::cout << "You are missing the config file or are missing some values - a default will be written" << std::endl;
 
         std::ofstream ofile{Config::config_file};
 
