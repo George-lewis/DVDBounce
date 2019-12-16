@@ -58,8 +58,13 @@ void Config::parseCommandLine(int argc, char** argv) {
 
     auto result = opts.parse(argc, argv);
 
+    // This is for detecting when the user has input an empty string
+    // Vs when the library has set the string to empty in the abscence
+    // Of user input
     if (!result.count("t")) {
+
         Config::read.erase("TITLE");
+
     }
 
     if (result.count("screensaver")) {
