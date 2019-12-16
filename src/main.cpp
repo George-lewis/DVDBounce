@@ -23,7 +23,7 @@ int main(int argc, char** argv) {
 
 	auto width = sf::VideoMode::getDesktopMode().width, height = sf::VideoMode::getDesktopMode().height;
 
-	bool fullscreen = DVD::Config::getBool("FULLSCREEN");
+	bool fullscreen = DVD::Config::getBool("FULLSCREEN") || DVD::Config::getBool("SCREENSAVER");
 
 	// Create the window
 	sf::RenderWindow window;
@@ -68,6 +68,11 @@ int main(int argc, char** argv) {
 				logo.scale_logo();
 
 			} else if (event.type == sf::Event::KeyPressed) {
+
+				if (DVD::Config::getBool("SCREENSAVER")) {
+					window.close();
+				}
+
 				if (event.key.code == sf::Keyboard::F) {
 					if (!fullscreen) {
 
@@ -117,6 +122,10 @@ int main(int argc, char** argv) {
 
 					logo.scale_logo();
 
+				}
+			} else if (event.type == sf::Event::MouseMoved) {
+				if (DVD::Config::getBool("SCREENSAVER")) {
+					window.close();
 				}
 			}
         }

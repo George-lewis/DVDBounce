@@ -29,7 +29,10 @@ std::unordered_map<std::string, std::string> Config::_default = {
     { "WINDOW_DEFAULT_FRACTION", "4" },
 
     { "#8", "Start the program in fullscreen -- please use 0 and 1 values" },
-    { "FULLSCREEN", "0" }
+    { "FULLSCREEN", "0" },
+
+    { "#9", "Screensaver setting causes the program to enter fullscreen mode immediately and exit on mouse/keyboard input" },
+    { "SCREENSAVER", "0" }
 
 }, Config::read{};
 
@@ -69,7 +72,7 @@ void Config::parseCommandLine(int argc, char** argv) {
 
     if (result.count("screensaver")) {
 
-        // Todo: Implement screensaver mode
+        Config::read["SCREENSAVER"] = "1";
 
     }
 
