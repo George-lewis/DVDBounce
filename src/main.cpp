@@ -26,7 +26,17 @@ int main(int argc, char** argv) {
 	bool fullscreen = DVD::Config::getBool("FULLSCREEN");
 
 	// Create the window
-	sf::RenderWindow window(sf::VideoMode(width / Config::getFloat("WINDOW_DEFAULT_FRACTION"), height / Config::getFloat("WINDOW_DEFAULT_FRACTION")), Config::getString("TITLE"), fullscreen ? sf::Style::Fullscreen : sf::Style::Default);
+	sf::RenderWindow window;
+
+	if (fullscreen) {
+
+		window.create(sf::VideoMode::getFullscreenModes()[0], Config::getString("TITLE"), sf::Style::Fullscreen);
+
+	} else {
+
+		window.create(sf::VideoMode(width / Config::getInt("WINDOW_DEFAULT_FRACTION"), height / Config::getInt("WINDOW_DEFAULT_FRACTION")), Config::getString("TITLE"));
+
+	}
 
 	window.setFramerateLimit(60);
 
@@ -73,7 +83,7 @@ int main(int argc, char** argv) {
 
 						auto width = sf::VideoMode::getDesktopMode().width;
 
-						window.create(sf::VideoMode(width / Config::getFloat("WINDOW_DEFAULT_FRACTION"), height / Config::getFloat("WINDOW_DEFAULT_FRACTION")), Config::getString("TITLE"));
+						window.create(sf::VideoMode(width / Config::getInt("WINDOW_DEFAULT_FRACTION"), height / Config::getInt("WINDOW_DEFAULT_FRACTION")), Config::getString("TITLE"));
 
 						window.setFramerateLimit(60);
 
