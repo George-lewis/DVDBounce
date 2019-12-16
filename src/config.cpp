@@ -100,7 +100,7 @@ void Config::readConfig() {
             std::string value = line.substr(line.find_first_of(':') + 1);
 
             // The value could be set by command line switches
-            if (Config::read.count(key) == 0 || Config::read[key].empty()) {
+            if (Config::read.count(key) == 0 || (Config::read[key].empty() && key != "TITLE")) {
 
                 Config::read[key] = value;
 
@@ -118,7 +118,7 @@ void Config::readConfig() {
 
         // A required value is not present in the
         // Config that was just read
-        if (Config::read.count(kv.first) == 0 || Config::read[kv.first].empty()) {
+        if (Config::read.count(kv.first) == 0 || (Config::read[kv.first].empty() && kv.first != "TITLE")) {
 
             // Special case for comments
             if (kv.first[0] == '#') {
