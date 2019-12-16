@@ -2,7 +2,7 @@
 
 ##### Now you can finally have that retro DVD screensaver on your PC.
 
-![](video.gif)
+![](videos/video.gif)
 
 ## Installation
 
