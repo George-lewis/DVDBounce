@@ -25,7 +25,7 @@ std::unordered_map<std::string, std::string> Config::_default = {
     { "TITLE", "DVD Bouncer Super Deluxe" },
 
     { "#6", "The default window size as a fraction of the screen size" },
-    { "#7", "EX: 4 -> 1/4 the width of the screen" },
+    { "#7", "EX: 4 -> 1/4 the size of the screen" },
     { "WINDOW_DEFAULT_FRACTION", "4" }
 
 
