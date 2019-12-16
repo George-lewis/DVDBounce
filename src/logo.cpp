@@ -15,10 +15,17 @@ Logo::Logo(sf::RenderWindow& win): sf::Sprite(), win(win) {
 
     this->d = id;
 
+    // Load our images
     load_images();
 
+    // Set *this* sprites texture
     this->setTexture(texs[0], true);
 
+    // Do initial scaling
+    // This may actual be unnecessary as
+    // An event is likely triggered in
+    // Main.cpp causing this to happen regardless, however
+    // It does no harm
     scale_logo();
 
 }

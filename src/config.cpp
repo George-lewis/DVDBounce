@@ -5,6 +5,8 @@
 
 using DVD::Config;
 
+// This represents the default values
+// Comments are also added in here with #[num]
 std::unordered_map<std::string, std::string> Config::_default = {
 
     { "#1", "This is the % width of the window" },
@@ -29,20 +31,25 @@ std::unordered_map<std::string, std::string> Config::_default = {
 
 }, Config::read{};
 
+// Reads the config into the program
 void Config::readConfig() {
 
     std::ifstream ifile{CONFIG_FILE};
 
     if (ifile.good()) {
 
+        // File is good to be read
+
         std::string line;
 
         while (std::getline(ifile, line)) {
 
+            // Skip comments and empty lines
             if (line[0] == '#' || line.empty()) {
                 continue;
             }
 
+            // Format: "key: value"
             std::string key = line.substr(0, line.find_first_of(':'));
 
             std::string value = line.substr(line.find_first_of(':') + 1);
@@ -57,50 +64,58 @@ void Config::readConfig() {
 
     bool changed = false;
 
-        for (const auto kv : _default) {
+    for (const auto kv : _default) {
 
-            // Not present
-            if (Config::read.count(kv.first) == 0) {
+        // A required value is not present in the
+        // Config that was just read
+        if (Config::read.count(kv.first) == 0) {
 
-                if (kv.first[0] == '#') {
-
-                    Config::read[kv.first] = kv.second;
-
-                    continue;
-
-                }
-
-                std::cout << "Missing value for \"" << kv.first << "\", updating with default.." << std::endl;
+            // Special case for comments
+            if (kv.first[0] == '#') {
 
                 Config::read[kv.first] = kv.second;
 
-                changed = true;
+                continue;
+
+            }
+
+            std::cout << "Missing value for \"" << kv.first << "\", updating with default.." << std::endl;
+
+            Config::read[kv.first] = kv.second;
+
+            // Notify code below that the file needs to be rewritten
+            changed = true;
+
+        }
+
+    }
+
+    // The config file was corrected and needs to be rewritten
+    if (changed) {
+
+        std::cout << "You are missing the config file - a default will be written" << std::endl;
+
+        std::ofstream ofile{CONFIG_FILE};
+
+        // Iterate through the patched config
+        // Config::read is now the result of merging
+        // The defaults into the read-in config
+        for (const auto kv : Config::read) {
+
+            // Comments are a special case
+            if (kv.first[0] == '#') {
+                ofile << "# " << kv.second << std::endl;
+            } else {
+
+                ofile << kv.first << ": " << kv.second << std::endl;
 
             }
 
         }
 
-        if (changed) {
+        ofile.close();
 
-            std::cout << "You are missing the config file - a default will be written" << std::endl;
-
-            std::ofstream ofile{CONFIG_FILE};
-
-            for (const auto kv : Config::read) {
-
-                if (kv.first[0] == '#') {
-                    ofile << "# " << kv.second << std::endl;
-                } else {
-
-                    ofile << kv.first << ": " << kv.second << std::endl;
-
-                }
-
-            }
-
-            ofile.close();
-
-        }
+    }
 
 }
 

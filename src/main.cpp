@@ -15,6 +15,7 @@ int main(int argc, char** argv) {
 
 	std::cout << "Welcome to DVD Bounce v" << VERSION << ", enjoy the retro" << std::endl;
 
+	// Initialize the config
 	DVD::Config::readConfig();
 
 	auto width = sf::VideoMode::getDesktopMode().width;
@@ -30,6 +31,9 @@ int main(int argc, char** argv) {
 
 	sf::Clock clock;
 
+	// This object represents the logo in the window
+	// It's a subclass of sprite and encapsulates
+	// The logic necessary to change the colors and do the hit detection etc
 	DVD::Logo logo{window};
 
 	// Event loop
