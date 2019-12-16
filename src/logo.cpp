@@ -39,9 +39,9 @@ void Logo::load_images() {
 
 		filename << "resources/dvdlogo-0" << i << ".png";
 
-		std::cout << "Load file: \"" << filename.str() << '"' << std::endl;
+		std::cout << "Load file: \"" << Config::getRelative(filename.str()) << '"' << std::endl;
 
-		imgs[i].loadFromFile(filename.str());
+		imgs[i].loadFromFile(Config::getRelative(filename.str()));
 
         texs[i].loadFromImage(imgs[i]);
 

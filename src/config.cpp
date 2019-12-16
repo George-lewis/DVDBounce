@@ -36,7 +36,7 @@ std::unordered_map<std::string, std::string> Config::_default = {
 
 }, Config::read{};
 
-std::string Config::config_file = CONFIG_FILE;
+std::string Config::config_file = CONFIG_FILE, Config::arg0;
 
 void Config::parseCommandLine(int argc, char** argv) {
 
@@ -198,5 +198,21 @@ float Config::getFloat(const std::string& key) {
 bool Config::getBool(const std::string& key) {
 
     return Config::read[key] == "1";
+
+}
+
+void Config::setArg0(char* arg0) {
+
+    auto x = std::string(arg0);
+
+    Config::arg0 = x.substr(0, x.find_last_of('/'));
+
+}
+
+std::string Config::getRelative(const std::string& path) {
+
+    std::string rel = arg0 + "/" + path;
+
+    return rel;
 
 }

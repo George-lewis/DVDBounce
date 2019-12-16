@@ -13,6 +13,10 @@ using Config = DVD::Config;
 
 int main(int argc, char** argv) {
 
+	std::cout << "argv[0] = " << argv[0] << std::endl;
+
+	DVD::Config::setArg0(argv[0]);
+
 	std::cout << "Welcome to DVD Bounce v" << VERSION << ", enjoy the retro" << std::endl;
 
 	// Parse command line

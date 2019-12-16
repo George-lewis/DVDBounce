@@ -12,7 +12,7 @@ namespace DVD {
 
     class Config {
 
-        static std::string config_file;
+        static std::string config_file, arg0;
 
         static std::unordered_map<std::string, std::string> _default, read;
 
@@ -26,6 +26,10 @@ namespace DVD {
             static int getInt(const std::string& key);
             static float getFloat(const std::string& key);
             static bool getBool(const std::string& key);
+
+            static void setArg0(char* arg0);
+
+            static std::string getRelative(const std::string& path);
 
     };
 
