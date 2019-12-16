@@ -1,5 +1,6 @@
 [requires]
 sfml/2.5.1@bincrafters/stable
+cxxopts/v2.1.2@inexorgame/stable
 
 [options]
 sfml:graphics=True
