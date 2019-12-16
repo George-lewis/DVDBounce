@@ -6,19 +6,26 @@
 #include <fstream>
 #include <unordered_map>
 
+#include <cxxopts.hpp>
+
 namespace DVD {
 
     class Config {
+
+        static std::string config_file;
 
         static std::unordered_map<std::string, std::string> _default, read;
 
         public:
 
+            static void parseCommandLine(int argc, char** argv);
+
             static void readConfig();
 
-            static std::string getString(std::string key);
-            static int getInt(std::string key);
-            static float getFloat(std::string key);
+            static std::string getString(const std::string& key);
+            static int getInt(const std::string& key);
+            static float getFloat(const std::string& key);
+            static bool getBool(const std::string& key);
 
     };
 

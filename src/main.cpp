@@ -15,19 +15,22 @@ int main(int argc, char** argv) {
 
 	std::cout << "Welcome to DVD Bounce v" << VERSION << ", enjoy the retro" << std::endl;
 
+	// Parse command line
+	DVD::Config::parseCommandLine(argc, argv);
+
 	// Initialize the config
 	DVD::Config::readConfig();
 
 	auto width = sf::VideoMode::getDesktopMode().width, height = sf::VideoMode::getDesktopMode().height;
 
+	bool fullscreen = DVD::Config::getBool("FULLSCREEN");
+
 	// Create the window
-	sf::RenderWindow window(sf::VideoMode(width / Config::getFloat("WINDOW_DEFAULT_FRACTION"), height / Config::getFloat("WINDOW_DEFAULT_FRACTION")), Config::getString("TITLE"));
+	sf::RenderWindow window(sf::VideoMode(width / Config::getFloat("WINDOW_DEFAULT_FRACTION"), height / Config::getFloat("WINDOW_DEFAULT_FRACTION")), Config::getString("TITLE"), fullscreen ? sf::Style::Fullscreen : sf::Style::Default);
 
 	window.setFramerateLimit(60);
 
 	window.setVerticalSyncEnabled(true);
-
-	bool fullscreen = false;
 
 	sf::Clock clock;
 

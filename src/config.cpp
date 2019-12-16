@@ -26,15 +26,51 @@ std::unordered_map<std::string, std::string> Config::_default = {
 
     { "#6", "The default window size as a fraction of the screen size" },
     { "#7", "EX: 4 -> 1/4 the size of the screen" },
-    { "WINDOW_DEFAULT_FRACTION", "4" }
+    { "WINDOW_DEFAULT_FRACTION", "4" },
 
+    { "#8", "Start the program in fullscreen -- please use 0 and 1 values" },
+    { "FULLSCREEN", "0" }
 
 }, Config::read{};
+
+std::string Config::config_file = CONFIG_FILE;
+
+void Config::parseCommandLine(int argc, char** argv) {
+
+    cxxopts::Options opts {"DVD Bouncer", "A program that simulates the retro DVD screensaver"};
+
+    opts.add_options()
+        ("screensaver", "Enables screensaver mode - the program starts fullscreen and exits on mouse/keyboard activity")
+        ("fullscreen", "Starts the program in fullscreen")
+        ("c,config", "Use a different config file", cxxopts::value<std::string>())
+        ;
+
+    auto result = opts.parse(argc, argv);
+
+    if (result.count("screensaver")) {
+
+        // Todo: Implement screensaver mode
+
+    }
+
+    if (result.count("fullscreen")) {
+
+        Config::read["FULLSCREEN"] = "1";
+
+    }
+
+    if (result.count("c")) {
+
+        Config::config_file = result["c"].as<std::string>();
+
+    }
+
+}
 
 // Reads the config into the program
 void Config::readConfig() {
 
-    std::ifstream ifile{CONFIG_FILE};
+    std::ifstream ifile{Config::config_file};
 
     if (ifile.good()) {
 
@@ -54,7 +90,12 @@ void Config::readConfig() {
 
             std::string value = line.substr(line.find_first_of(':') + 1);
 
-            Config::read[key] = value;
+            // The value could be set by command line switches
+            if (Config::read.count(key) == 0) {
+
+                Config::read[key] = value;
+
+            }
 
         }
 
@@ -95,7 +136,7 @@ void Config::readConfig() {
 
         std::cout << "You are missing the config file - a default will be written" << std::endl;
 
-        std::ofstream ofile{CONFIG_FILE};
+        std::ofstream ofile{Config::config_file};
 
         // Iterate through the patched config
         // Config::read is now the result of merging
@@ -119,20 +160,26 @@ void Config::readConfig() {
 
 }
 
-std::string Config::getString(std::string key) {
+std::string Config::getString(const std::string& key) {
 
     return Config::read[key];
 
 }
 
-int Config::getInt(std::string key) {
+int Config::getInt(const std::string& key) {
 
     return std::stoi(Config::read[key]);
 
 }
 
-float Config::getFloat(std::string key) {
+float Config::getFloat(const std::string& key) {
 
     return std::stof(Config::read[key]);
+
+}
+
+bool Config::getBool(const std::string& key) {
+
+    return Config::read[key] == "1";
 
 }
