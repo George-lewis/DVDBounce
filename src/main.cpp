@@ -20,7 +20,11 @@ int main(int argc, char** argv) {
 	std::cout << "Welcome to DVD Bounce v" << VERSION << ", enjoy the retro" << std::endl;
 
 	// Parse command line
-	DVD::Config::parseCommandLine(argc, argv);
+	auto res = DVD::Config::parseCommandLine(argc, argv);
+
+	if (!res) {
+		return 1;
+	}
 
 	// Initialize the config
 	DVD::Config::readConfig();

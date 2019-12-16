@@ -38,7 +38,7 @@ std::unordered_map<std::string, std::string> Config::_default = {
 
 std::string Config::config_file = CONFIG_FILE, Config::arg0;
 
-void Config::parseCommandLine(int argc, char** argv) {
+bool Config::parseCommandLine(int argc, char** argv) {
 
     cxxopts::Options opts {"DVD Bouncer", "A program that simulates the retro DVD screensaver"};
 
@@ -59,28 +59,40 @@ void Config::parseCommandLine(int argc, char** argv) {
         ("logo-width-min", "Specify the logo's min width in %", cxxopts::value(Config::read["LOGO_WIDTH_PERCENTAGE_LOWER_BOUND"]))
         ;
 
-    auto result = opts.parse(argc, argv);
+    try {
 
-    // This is for detecting when the user has input an empty string
-    // Vs when the library has set the string to empty in the abscence
-    // Of user input
-    if (!result.count("t")) {
+        auto result = opts.parse(argc, argv);
+    
+        // This is for detecting when the user has input an empty string
+        // Vs when the library has set the string to empty in the abscence
+        // Of user input
+        if (!result.count("t")) {
 
-        Config::read.erase("TITLE");
+            Config::read.erase("TITLE");
+
+        }
+
+        if (result.count("screensaver")) {
+
+            Config::read["SCREENSAVER"] = "1";
+
+        }
+
+        if (result.count("fullscreen")) {
+
+            Config::read["FULLSCREEN"] = "1";
+
+        }
+
+    } catch (cxxopts::OptionException e) {
+
+        std::cout << opts.help();
+
+        return false;
 
     }
 
-    if (result.count("screensaver")) {
-
-        Config::read["SCREENSAVER"] = "1";
-
-    }
-
-    if (result.count("fullscreen")) {
-
-        Config::read["FULLSCREEN"] = "1";
-
-    }
+    return true;
 
 }
 

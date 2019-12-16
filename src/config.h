@@ -18,7 +18,7 @@ namespace DVD {
 
         public:
 
-            static void parseCommandLine(int argc, char** argv);
+            static bool parseCommandLine(int argc, char** argv);
 
             static void readConfig();
 
