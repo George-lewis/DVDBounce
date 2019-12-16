@@ -32,6 +32,8 @@ int main(int argc, char** argv) {
 
 		window.create(sf::VideoMode::getFullscreenModes()[0], Config::getString("TITLE"), sf::Style::Fullscreen);
 
+		window.setMouseCursorVisible(false);
+
 	} else {
 
 		window.create(sf::VideoMode(width / Config::getInt("WINDOW_DEFAULT_FRACTION"), height / Config::getInt("WINDOW_DEFAULT_FRACTION")), Config::getString("TITLE"));
