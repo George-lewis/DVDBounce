@@ -109,6 +109,8 @@ int main(int argc, char** argv) {
 					}
 
 					logo.reset_pos();
+					
+					logo.scale_logo();
 
 				} else if (event.key.code == sf::Keyboard::Escape) {
 					window.close();
