@@ -37,7 +37,7 @@ void Logo::load_images() {
 
 		std::stringstream filename;
 
-		filename << "resources/dvdlogo-0" << i << ".png";
+		filename << "resources" << DVD::Config::PATHSEP << "dvdlogo-0" << i << ".png";
 
 		std::cout << "Load file: \"" << Config::getRelative(filename.str()) << '"' << std::endl;
 

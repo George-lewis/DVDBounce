@@ -12,17 +12,19 @@ namespace DVD {
 
     class Config {
 
-        #if defined(WIN32) || defined(_WIN32)
-        static const char PATHSEP = '\\';
-        #else
-        static const char PATHSEP = '/';
-        #endif
-
         static std::string config_file, arg0;
 
         static std::unordered_map<std::string, std::string> _default, read;
 
         public:
+
+            // Windows and Unix use different path separators
+            // This is to handle that
+            #if defined(WIN32) || defined(_WIN32)
+            static const char PATHSEP = '\\';
+            #else
+            static const char PATHSEP = '/';
+            #endif
 
             static bool parseCommandLine(int argc, char** argv);
 
