@@ -215,6 +215,8 @@ bool Config::getBool(const std::string& key) {
 
 void Config::setArg0(char* arg0) {
 
+    std::cout << "System Path Separator: \"" << Config::PATHSEP << "\"" << std::endl;
+
     auto x = std::string(arg0);
 
     Config::arg0 = x.substr(0, x.find_last_of(Config::PATHSEP));
