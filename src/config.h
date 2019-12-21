@@ -12,6 +12,12 @@ namespace DVD {
 
     class Config {
 
+        #if defined(WIN32) || defined(_WIN32)
+        static const char PATHSEP = '\\';
+        #else
+        static const char PATHSEP = '/';
+        #endif
+
         static std::string config_file, arg0;
 
         static std::unordered_map<std::string, std::string> _default, read;

@@ -217,13 +217,15 @@ void Config::setArg0(char* arg0) {
 
     auto x = std::string(arg0);
 
-    Config::arg0 = x.substr(0, x.find_last_of('/'));
+    Config::arg0 = x.substr(0, x.find_last_of(Config::PATHSEP));
+
+    Config::config_file = Config::getRelative(Config::config_file);
 
 }
 
 std::string Config::getRelative(const std::string& path) {
 
-    std::string rel = arg0 + "/" + path;
+    std::string rel = arg0 + Config::PATHSEP + path;
 
     return rel;
 
