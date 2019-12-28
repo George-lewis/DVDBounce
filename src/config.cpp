@@ -119,6 +119,19 @@ void Config::readConfig() {
 
             std::string value = line.substr(line.find_first_of(':') + 1);
 
+            if (Config::read.count(key) && !Config::read[key].empty()) {
+                // Defined twice
+                std::cout << "Note: Option \"" << key << "\" is declared twice in the config file. Using first parsed value." << std::endl;
+                continue;
+            }
+
+            if (_default.count(key) == 0) {
+
+                // Not a real option
+                std::cout << "Encountered uknown option when parsing config file: \"" << key << "\"" << std::endl;
+                continue;
+            }
+
             // The value could be set by command line switches
             if (Config::read.count(key) == 0 || (Config::read[key].empty() && key != "TITLE")) {
 
