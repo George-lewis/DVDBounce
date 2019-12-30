@@ -17,3 +17,10 @@
   - The direction of the logo
   - The various different images (colors) the logo can be and which one it currently is
   - The logic required to move the logo on each tick and check the bounds etc
+
+#### config.h / config.cpp
+- This is a static class responsible for handling everything configuration related
+- Can parse the command line into the options structure (it's an `std::unordered_map`)
+- Can parse an arbitrary config file (can be specified in the command line parameters)
+- Note: It's important that the command line be parsed before the config file
+- This class also contains the platform-appropriate path separator
