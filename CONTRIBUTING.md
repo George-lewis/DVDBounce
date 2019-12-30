@@ -24,3 +24,9 @@
 - Can parse an arbitrary config file (can be specified in the command line parameters)
 - Note: It's important that the command line be parsed before the config file
 - This class also contains the platform-appropriate path separator
+
+#### utilh / util.cpp
+- This class contains utility functions that aren't particularly specific to anything else
+- For now this means just one function: ``normalize(sf::Vector2f&)`
+  - The function takes a vector and turns it into a unit vector
+  - This is important for calculating the direction vector of the Logo
