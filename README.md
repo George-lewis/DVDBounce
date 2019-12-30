@@ -80,3 +80,20 @@ Note: If your config file is missing any of these parameters the program will us
 
 #### Command Line Parameters
 
+```
+--screensaver: Enables screensaver mode - the program starts fullscreen and exits on mouse/keyboard activity
+--fullscreen: Starts the program in fullscreen
+-c, --config [path]: Use a different config file
+
+-t, --title [string]: Set the window's title
+
+--tick [int]: Set the number of miliseconds between logo movements (default 5)
+-s, --speed [int]: Set the speed of the logo (default 3)
+
+--window-fraction: Set the size of the window as a fraction of the screen size (4 -> 1/4th)
+
+--logo-width [float]: Specify the logo's width on startup (0.1 = 10%)
+
+--logo-width-max [float]: Specify the logo's max width in %
+--logo-width-min [float]: Specify the logo's min width in %
+```
