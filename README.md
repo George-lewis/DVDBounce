@@ -24,6 +24,7 @@ Note: Windows users may need the [Microsoft Visual C++ Redistributable](https://
 
 1. Acquire a C++ compiler (Windows users: I recommend [MSVC](https://visualstudio.microsoft.com/downloads/), Look for "build tools"), Conan, and CMake (Windows users: This comes with the MSVC build tools)
    1. Configure the *bincrafters* repository with Conan: `conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan`
+   2. Configure the Darcamo repository (used for CXXOPTS) `conan remote add darcamo https://api.bintray.com/conan/darcamo/cppsim `
    2. If you don't want to use Conan you'll need to acquire all of the dependencies yourself.
 2. Clone the repo
 3. Install dependencies
