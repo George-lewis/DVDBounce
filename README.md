@@ -90,7 +90,7 @@ Note: If your config file is missing any of these parameters the program will us
 --tick [int]: Set the number of miliseconds between logo movements (default 5)
 -s, --speed [int]: Set the speed of the logo (default 3)
 
---window-fraction: Set the size of the window as a fraction of the screen size (4 -> 1/4th)
+--window-fraction [int]: Set the size of the window as a fraction of the screen size (4 -> 1/4th)
 
 --logo-width [float]: Specify the logo's width on startup (0.1 = 10%)
 
